@@ -131,6 +131,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\EquipoController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -199,6 +200,16 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SI656_AlquilerEquipos.Data\SI656_AlquilerEquipos.Data.csproj">
+      <Project>{80f9d34e-f23d-4d6c-a3a4-4eb798026935}</Project>
+      <Name>SI656_AlquilerEquipos.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SI656_AlquilerEquipos.Services\SI656_AlquilerEquipos.Services.csproj">
+      <Project>{32d3c32a-090a-443a-895d-88c963551930}</Project>
+      <Name>SI656_AlquilerEquipos.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
