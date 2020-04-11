@@ -31,7 +31,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -41,7 +48,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="EntityFrameworkDataAccess\AlquilerRepository.cs" />
+    <Compile Include="EntityFrameworkDataAccess\BaseRepository.cs" />
+    <Compile Include="EntityFrameworkDataAccess\ClienteRepository.cs" />
+    <Compile Include="EntityFrameworkDataAccess\EquipoRepository.cs" />
+    <Compile Include="EntityFrameworkDataAccess\Interface\IAlquierRepository.cs" />
+    <Compile Include="EntityFrameworkDataAccess\Interface\IBaseRepository.cs" />
+    <Compile Include="EntityFrameworkDataAccess\Interface\IClienteRepository.cs" />
+    <Compile Include="EntityFrameworkDataAccess\Interface\IEquipoRepository.cs" />
+    <Compile Include="EntityFrameworkDataAccess\Interface\IUsuarioRepository.cs" />
+    <Compile Include="EntityFrameworkDataAccess\UsuarioRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -49,6 +65,10 @@
       <Project>{80f9d34e-f23d-4d6c-a3a4-4eb798026935}</Project>
       <Name>SI656_AlquilerEquipos.Data</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

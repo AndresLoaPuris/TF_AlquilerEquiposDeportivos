@@ -41,10 +41,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="BussinesService\ClienteService.cs" />
+    <Compile Include="BussinesService\EquipoService.cs" />
+    <Compile Include="BussinesService\Interface\IClienteService.cs" />
+    <Compile Include="BussinesService\Interface\IEquipoService.cs" />
+    <Compile Include="BussinesService\Interface\IUsuarioService.cs" />
+    <Compile Include="BussinesService\UsuarioService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SI656_AlquilerEquipos.Data\SI656_AlquilerEquipos.Data.csproj">
+      <Project>{80f9d34e-f23d-4d6c-a3a4-4eb798026935}</Project>
+      <Name>SI656_AlquilerEquipos.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SI656_AlquilerEquipos.Repository\SI656_AlquilerEquipos.Repository.csproj">
       <Project>{e54ac26c-9224-4c1d-9556-cb218553585b}</Project>
       <Name>SI656_AlquilerEquipos.Repository</Name>
