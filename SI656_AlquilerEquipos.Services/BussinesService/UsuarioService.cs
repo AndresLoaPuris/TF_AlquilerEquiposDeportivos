@@ -17,29 +17,34 @@ namespace SI656_AlquilerEquipos.Services.BussinesService
             _userRepository = new UsuarioRepository(context);
         }
 
-        public Task AddUserAsync(usuario user)
+        public async Task AddUserAsync(usuario user)
         {
-            throw new NotImplementedException();
+            await _userRepository.AddAsync(user);
+            //throw new NotImplementedException();
         }
 
-        public Task DeleteUserAsync(int id)
+        public async Task DeleteUserAsync(int id)
         {
-            throw new NotImplementedException();
+            await _userRepository.DeleteAsync(id);
+            //throw new NotImplementedException();
         }
 
-        public Task<List<usuario>> GetAllUserAsync()
+        public async Task<List<usuario>> GetAllUserAsync()
         {
-            throw new NotImplementedException();
+            return await _userRepository.ListAsync();
+            //throw new NotImplementedException();
         }
 
-        public Task<usuario> GetByIdAsync(int idd)
+        public async Task<usuario> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _userRepository.GetByIdAsync(id);
+            //throw new NotImplementedException();
         }
 
-        public Task UpdateUserAsync(usuario user)
+        public async Task UpdateUserAsync(usuario user)
         {
-            throw new NotImplementedException();
+            await _userRepository.EditAsync(user);
+            //throw new NotImplementedException();
         }
     }
 }

@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace SI656_AlquilerEquipos.Repository.EntityFrameworkDataAccess.Interface
 {
-    public interface IClienteRepository : IBaseRepository<usuario>
+    public interface IClienteRepository : IBaseRepository<cliente>
     {
+
     }
 }

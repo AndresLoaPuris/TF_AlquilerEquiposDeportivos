@@ -9,10 +9,10 @@ namespace SI656_AlquilerEquipos.Services.BussinesService.Interface
 {
     public interface IClienteService
     {
-        Task<cliente> GetByIdAsync(int idd);
+        Task<cliente> GetByIdAsync(int id);
         Task UpdateClientAsync(cliente client);
         Task AddClientAsync(cliente client);
         Task DeleteClientAsync(int id);
-        Task<List<equipo>> GetAllClientAsync();
+        Task<List<cliente>> GetAllClientAsync();
     }
 }

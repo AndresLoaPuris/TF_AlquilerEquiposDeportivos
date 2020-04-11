@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SI656_AlquilerEquipos.Repository.EntityFrameworkDataAccess
 {
-    public class ClienteRepository : BaseRepository<usuario>, IClienteRepository
+    public class ClienteRepository : BaseRepository<cliente>, IClienteRepository
     {
         private readonly db_AlquilerEquipoEntities _context;
 

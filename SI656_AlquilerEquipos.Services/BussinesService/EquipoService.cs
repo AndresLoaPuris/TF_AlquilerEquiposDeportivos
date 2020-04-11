@@ -17,29 +17,35 @@ namespace SI656_AlquilerEquipos.Services.BussinesService
             _equipoRepository = new EquipoRepository(context);
         }
 
-        public Task AddEquipmentAsync(equipo equipment)
+        public async Task AddEquipmentAsync(equipo equipment)
         {
-            throw new NotImplementedException();
+            await _equipoRepository.AddAsync(equipment);
+            //throw new NotImplementedException();
         }
 
-        public Task DeleteEquipmentAsync(int id)
+        public async Task DeleteEquipmentAsync(int id)
         {
-            throw new NotImplementedException();
+            await _equipoRepository.DeleteAsync(id);
+            //throw new NotImplementedException();
         }
 
-        public Task<List<equipo>> GetAllEquipmentAsync()
+        public async Task<List<equipo>> GetAllEquipmentAsync()
         {
-            throw new NotImplementedException();
+            var equipments = await _equipoRepository.ListAsync();
+            //throw new NotImplementedException();
+            return equipments;
         }
 
-        public Task<equipo> GetByIdAsync(int idd)
+        public async Task<equipo> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _equipoRepository.GetByIdAsync(id);
+            //throw new NotImplementedException();
         }
 
-        public Task UpdateEquipmentAsync(equipo equipment)
+        public async Task UpdateEquipmentAsync(equipo equipment)
         {
-            throw new NotImplementedException();
+            await _equipoRepository.EditAsync(equipment);
+            //throw new NotImplementedException();
         }
     }
 }

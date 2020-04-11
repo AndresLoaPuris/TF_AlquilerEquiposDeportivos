@@ -9,7 +9,7 @@ namespace SI656_AlquilerEquipos.Services.BussinesService.Interface
 {
     public interface IUsuarioService
     {
-        Task<usuario> GetByIdAsync(int idd);
+        Task<usuario> GetByIdAsync(int id);
         Task UpdateUserAsync(usuario user);
         Task AddUserAsync(usuario user);
         Task DeleteUserAsync(int id);
