@@ -44,6 +44,7 @@ namespace SI656_AlquilerEquipos.Services.BussinesService
 
         public async Task UpdateEquipmentAsync(equipo equipment)
         {
+            
             await _equipoRepository.EditAsync(equipment);
             //throw new NotImplementedException();
         }

@@ -74,6 +74,7 @@ namespace SI656_AlquilerEquipos.Web.Controllers
         {
             // TODO: Add delete logic here
             await _clienteService.DeleteClientAsync(id);
+
             return RedirectToAction("Index");
         }
     }

@@ -4,48 +4,67 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+    <div class="container-fluid">
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.nombre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.sexo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.documento)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.tipo_documento_id)
-        </th>
-        <th></th>
-    </tr>
+        <p class="mb-4"></p>
+        <!-- Page Heading -->
+        <h1 class="h3 mb-2 text-gray-900"><strong>Clientes</strong></h1>
+        <p class="mb-4"></p>
+        <p>
+            @Html.ActionLink("Nuevo Cliente", "Create", null, new { @class = "d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" })
+        </p>
+        <p class="mb-4"></p>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.sexo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.documento)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.tipo_documento_id)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
-        </td>
-    </tr>
-}
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary"></h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
 
-</table>
+                    <table class="table">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.nombre)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.sexo)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.documento)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.tipo_documento_id)
+                            </th>
+                            <th>Opciones</th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.nombre)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.sexo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.documento)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.tipo_documento_id)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.id }, new { @class = "d-none d-sm-inline-block btn btn-sm btn-info shadow-sm" }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm" })
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
