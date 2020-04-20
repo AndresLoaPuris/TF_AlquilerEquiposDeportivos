@@ -1,0 +1,82 @@
+﻿@model SI656_AlquilerEquipos.Web.ViewModel.User.CreateViewModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>View</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>usuario</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-row">
+            <div class="col-md-6">
+                @Html.LabelFor(x => x.Name, htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(x => x.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(x => x.Name, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6">
+                @Html.LabelFor(x => x.FatherLastName, htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(x => x.FatherLastName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(x => x.FatherLastName, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6">
+                @Html.LabelFor(x => x.MotherLastName, htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(x => x.MotherLastName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(x => x.MotherLastName, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6">
+                @Html.LabelFor(x => x.NameUser, htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(x => x.NameUser, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(x => x.NameUser, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6">
+                @Html.LabelFor(x => x.Email, htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(x => x.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(x => x.Email, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6">
+                @Html.LabelFor(x => x.Password, htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(x => x.Password, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(x => x.Password, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6">
+                @Html.LabelFor(x => x.MobileNumber, htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(x => x.MobileNumber, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(x => x.MobileNumber, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6">
+                @Html.LabelFor(x => x.RolId, htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.DropDownListFor(x => x.RolId, new SelectList(Model.RolList, "id", "nombre"), "- Seleccione -", new { @class = "form-control", @required = "required" })
+                @Html.ValidationMessageFor(x => x.RolId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-6">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

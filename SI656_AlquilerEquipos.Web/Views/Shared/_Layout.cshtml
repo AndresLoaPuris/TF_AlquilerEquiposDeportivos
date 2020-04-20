@@ -11,6 +11,7 @@
     <link href="/Resources/css/sb-admin-2.min.css" rel="stylesheet">
     @*<link href="/Resources/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">*@
     <link href="@Url.Content("~/Resources/vendor/datatables-orignal/jquery.dataTables.css")" rel="stylesheet" type="text/css" />
+    <!--Poner dropify antes del bootstrap-->
     <link href="/Resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -31,22 +32,22 @@
         <hr class="sidebar-divider">
 
         <li class="nav-item">
-            <a class="nav-link" href="/Alquiler/Index">
+            <a class="nav-link" href="@Url.Action("Index","Alquiler")">
                 <i class="fas fa-fw fa-cash-register"></i>
                 <span>Alquileres</span>
             </a>
         </li>
 
-        <li class="nav-item">
-            <a class="nav-link" href="/DetalleAlquiler/Index">
-                <i class="fas fa-fw fa-bars"></i>
-                <span>Detalles Alquiler</span>
-            </a>
-        </li>
+        @*<li class="nav-item">
+                <a class="nav-link" href="/DetalleAlquiler/Index">
+                    <i class="fas fa-fw fa-bars"></i>
+                    <span>Detalles Alquiler</span>
+                </a>
+            </li>*@
 
         <!-- Nav Item - Charts -->
         <li class="nav-item">
-            <a class="nav-link" href="/Cliente/Index">
+            <a class="nav-link" href="@Url.Action("Index","Cliente")">
                 <i class="fas fa-fw fa-users"></i>
                 <span>Clientes</span>
             </a>
@@ -67,9 +68,16 @@
         @RenderBody()
     </div>
 
+
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
+
+    @Html.Raw(TempData["AlertNotification"])
+    @{ TempData["AlertNotification"] = string.Empty;}
+
 
     <script src="/Resources/vendor/jquery/jquery.min.js"></script>
     <script src="/Resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

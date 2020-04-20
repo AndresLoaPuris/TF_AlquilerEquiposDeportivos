@@ -126,24 +126,28 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
-    <Compile Include="Controllers\ClienteController.cs" />
-    <Compile Include="Controllers\EquipoController.cs" />
+    <Compile Include="Controllers\ClientController.cs" />
+    <Compile Include="Controllers\EquipmentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\UsuarioController.cs" />
+    <Compile Include="Controllers\RentalController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Filters\AppAuthorizeAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModel\Cliente\CreateViewModel.cs" />
-    <Compile Include="ViewModel\Cliente\EditViewModel.cs" />
-    <Compile Include="ViewModel\Cliente\IndexViewModel.cs" />
-    <Compile Include="ViewModel\Equipo\CreateViewModel.cs" />
-    <Compile Include="ViewModel\Equipo\EditViewModel.cs" />
-    <Compile Include="ViewModel\Equipo\IndexViewModel.cs" />
-    <Compile Include="ViewModel\Usuario\CreateViewModel.cs" />
-    <Compile Include="ViewModel\Usuario\EditViewModel.cs" />
-    <Compile Include="ViewModel\Usuario\IndexViewModel.cs" />
+    <Compile Include="ViewModel\Auth\IndexViewModel.cs" />
+    <Compile Include="ViewModel\Client\CreateViewModel.cs" />
+    <Compile Include="ViewModel\Client\EditViewModel.cs" />
+    <Compile Include="ViewModel\Client\IndexViewModel.cs" />
+    <Compile Include="ViewModel\Equipment\CreateViewModel.cs" />
+    <Compile Include="ViewModel\Equipment\EditViewModel.cs" />
+    <Compile Include="ViewModel\Equipment\IndexViewModel.cs" />
+    <Compile Include="ViewModel\User\CreateViewModel.cs" />
+    <Compile Include="ViewModel\User\EditViewModel.cs" />
+    <Compile Include="ViewModel\User\IndexViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -179,6 +183,8 @@
     <Content Include="Resources\vendor\datatables\dataTables.bootstrap4.min.js" />
     <Content Include="Resources\vendor\datatables\jquery.dataTables.js" />
     <Content Include="Resources\vendor\datatables\jquery.dataTables.min.js" />
+    <Content Include="Resources\vendor\dropify\dropify.min.css" />
+    <Content Include="Resources\vendor\dropify\dropify.min.js" />
     <Content Include="Resources\vendor\fontawesome-free\css\all.css" />
     <Content Include="Resources\vendor\fontawesome-free\css\all.min.css" />
     <Content Include="Resources\vendor\fontawesome-free\css\brands.css" />
@@ -1956,22 +1962,24 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Usuario\Index.cshtml" />
-    <Content Include="Views\Usuario\Create.cshtml" />
-    <Content Include="Views\Usuario\Delete.cshtml" />
-    <Content Include="Views\Usuario\Edit.cshtml" />
-    <Content Include="Views\Equipo\Index.cshtml" />
-    <Content Include="Views\Equipo\Delete.cshtml" />
-    <Content Include="Views\Equipo\Create.cshtml" />
-    <Content Include="Views\Cliente\Index.cshtml" />
-    <Content Include="Views\Cliente\Edit.cshtml" />
-    <Content Include="Views\Cliente\Create.cshtml" />
-    <Content Include="Views\Cliente\Delete.cshtml" />
-    <Content Include="Views\Equipo\Edit.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\User\Create.cshtml" />
+    <Content Include="Views\User\Delete.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\Equipment\Index.cshtml" />
+    <Content Include="Views\Equipment\Delete.cshtml" />
+    <Content Include="Views\Equipment\Create.cshtml" />
+    <Content Include="Views\Client\Index.cshtml" />
+    <Content Include="Views\Client\Edit.cshtml" />
+    <Content Include="Views\Client\Create.cshtml" />
+    <Content Include="Views\Client\Delete.cshtml" />
+    <Content Include="Views\Equipment\Edit.cshtml" />
+    <Content Include="Views\Auth\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Rental\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -1990,6 +1998,10 @@
     <ProjectReference Include="..\SI656_AlquilerEquipos.Data\SI656_AlquilerEquipos.Data.csproj">
       <Project>{80f9d34e-f23d-4d6c-a3a4-4eb798026935}</Project>
       <Name>SI656_AlquilerEquipos.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SI656_AlquilerEquipos.Helper\SI656_AlquilerEquipos.Helper.csproj">
+      <Project>{62C742BA-AA6F-4F02-BBA2-B978ECA4B764}</Project>
+      <Name>SI656_AlquilerEquipos.Helper</Name>
     </ProjectReference>
     <ProjectReference Include="..\SI656_AlquilerEquipos.Services\SI656_AlquilerEquipos.Services.csproj">
       <Project>{32d3c32a-090a-443a-895d-88c963551930}</Project>

@@ -1,4 +1,5 @@
 ﻿using SI656_AlquilerEquipos.Data;
+using SI656_AlquilerEquipos.Helper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,6 +36,9 @@ namespace SI656_AlquilerEquipos.Web.Controllers
 
             return cargarDatosContext;
         }
+
+        public void AlertNotification(string type, string title, string message) => TempData["AlertNotification"] =
+           UIHelper.RenderAlertNotificacion(type, title, message);
 
     }
 }

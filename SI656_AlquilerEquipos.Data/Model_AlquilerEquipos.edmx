@@ -5,60 +5,115 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="db_AlquilerEquipoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="alquiler">
+        <EntityType Name="Client">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="fecha" Type="date" Nullable="false" />
-          <Property Name="total" Type="decimal" Precision="10" Scale="2" Nullable="false" />
-          <Property Name="fecha_registro" Type="datetime" Nullable="false" />
-          <Property Name="cliente_id" Type="int" Nullable="false" />
-          <Property Name="usuario_id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="MotherLastName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="FatherLastName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="GenderId" Type="int" Nullable="false" />
+          <Property Name="DocumentNumber" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DocumentTypeId" Type="int" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Age" Type="int" Nullable="false" />
+          <Property Name="MobileNumber" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="UserCreatedId" Type="int" Nullable="false" />
+          <Property Name="UserModifiedId" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="alquiler_detalle">
+        <EntityType Name="DocumentType">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="precio" Type="decimal" Precision="10" Scale="2" Nullable="false" />
-          <Property Name="equipo_id" Type="int" Nullable="false" />
-          <Property Name="alquiler_id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
-        <EntityType Name="cargo">
+        <EntityType Name="Equipment">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="nombre" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Description" Type="text" Nullable="false" />
+          <Property Name="Cost" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="EquipmentStateId" Type="int" Nullable="false" />
+          <Property Name="Stock" Type="int" Nullable="false" />
+          <Property Name="EquipmentTypeId" Type="int" Nullable="false" />
+          <Property Name="PriceByHour" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="PriceByDay" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="PriceByWeek" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="ExtraHour" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="ExtraDay" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="ImagePath" Type="varchar" MaxLength="100" />
         </EntityType>
-        <EntityType Name="cliente">
+        <EntityType Name="EquipmentState">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="nombre" Type="varchar" MaxLength="200" Nullable="false" />
-          <Property Name="sexo" Type="varchar" MaxLength="70" Nullable="false" />
-          <Property Name="documento" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="tipo_documento_id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="200" Nullable="false" />
         </EntityType>
-        <EntityType Name="equipo">
+        <EntityType Name="EquipmentType">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="codigo" Type="varchar" MaxLength="200" Nullable="false" />
-          <Property Name="nombre" Type="varchar" MaxLength="200" Nullable="false" />
-          <Property Name="descripcion" Type="text" Nullable="false" />
-          <Property Name="costo" Type="decimal" Precision="10" Scale="2" Nullable="false" />
-          <Property Name="estado_id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+          <Property Name="Description" Type="varchar" MaxLength="100" />
         </EntityType>
-        <EntityType Name="estado">
+        <EntityType Name="Gender">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="nombre" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Rental">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" Nullable="false" />
+          <Property Name="TotalPrice" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="OrderDate" Type="datetime" Nullable="false" />
+          <Property Name="ClientId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="RentalStateId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RentalDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SubTotal" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="EquipmentId" Type="int" Nullable="false" />
+          <Property Name="RentalId" Type="int" Nullable="false" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+          <Property Name="ExpirationDate" Type="datetime" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RentalState">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Rol">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -70,144 +125,208 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
-        <EntityType Name="tipo_documento">
+        <EntityType Name="User">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="nombre" Type="varchar" MaxLength="200" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="MotherLastName" Type="varchar" MaxLength="50" />
+          <Property Name="FatherLastName" Type="varchar" MaxLength="50" />
+          <Property Name="NameUser" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="RolId" Type="int" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="MobileNumber" Type="varchar" MaxLength="50" />
         </EntityType>
-        <EntityType Name="usuario">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="nombre" Type="varchar" MaxLength="255" Nullable="false" />
-          <Property Name="usuario" Type="varchar" MaxLength="255" Nullable="false" />
-          <Property Name="clave" Type="varchar" MaxLength="200" Nullable="false" />
-          <Property Name="cargo_id" Type="int" Nullable="false" />
-        </EntityType>
-        <Association Name="fk_ad_alquiler_id">
-          <End Role="alquiler" Type="Self.alquiler" Multiplicity="1" />
-          <End Role="alquiler_detalle" Type="Self.alquiler_detalle" Multiplicity="*" />
+        <Association Name="FK_Client_DocumentType">
+          <End Role="DocumentType" Type="Self.DocumentType" Multiplicity="1" />
+          <End Role="Client" Type="Self.Client" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="alquiler">
-              <PropertyRef Name="id" />
+            <Principal Role="DocumentType">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="alquiler_detalle">
-              <PropertyRef Name="alquiler_id" />
+            <Dependent Role="Client">
+              <PropertyRef Name="DocumentTypeId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_ad_equipo_id">
-          <End Role="equipo" Type="Self.equipo" Multiplicity="1" />
-          <End Role="alquiler_detalle" Type="Self.alquiler_detalle" Multiplicity="*" />
+        <Association Name="FK_Client_Gender">
+          <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
+          <End Role="Client" Type="Self.Client" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="equipo">
-              <PropertyRef Name="id" />
+            <Principal Role="Gender">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="alquiler_detalle">
-              <PropertyRef Name="equipo_id" />
+            <Dependent Role="Client">
+              <PropertyRef Name="GenderId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_alquiler_cliente_id">
-          <End Role="cliente" Type="Self.cliente" Multiplicity="1" />
-          <End Role="alquiler" Type="Self.alquiler" Multiplicity="*" />
+        <Association Name="FK_Client_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Client" Type="Self.Client" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="cliente">
-              <PropertyRef Name="id" />
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="alquiler">
-              <PropertyRef Name="cliente_id" />
+            <Dependent Role="Client">
+              <PropertyRef Name="UserCreatedId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_alquiler_usuario_id">
-          <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
-          <End Role="alquiler" Type="Self.alquiler" Multiplicity="*" />
+        <Association Name="FK_Client_User1">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Client" Type="Self.Client" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="usuario">
-              <PropertyRef Name="id" />
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="alquiler">
-              <PropertyRef Name="usuario_id" />
+            <Dependent Role="Client">
+              <PropertyRef Name="UserModifiedId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_cliente_tipo_documento_id">
-          <End Role="tipo_documento" Type="Self.tipo_documento" Multiplicity="1" />
-          <End Role="cliente" Type="Self.cliente" Multiplicity="*" />
+        <Association Name="FK_Equipment_EquipmentState">
+          <End Role="EquipmentState" Type="Self.EquipmentState" Multiplicity="1" />
+          <End Role="Equipment" Type="Self.Equipment" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="tipo_documento">
-              <PropertyRef Name="id" />
+            <Principal Role="EquipmentState">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="cliente">
-              <PropertyRef Name="tipo_documento_id" />
+            <Dependent Role="Equipment">
+              <PropertyRef Name="EquipmentStateId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_producto_estado_id">
-          <End Role="estado" Type="Self.estado" Multiplicity="1" />
-          <End Role="equipo" Type="Self.equipo" Multiplicity="*" />
+        <Association Name="FK_Equipment_EquipmentType">
+          <End Role="EquipmentType" Type="Self.EquipmentType" Multiplicity="1" />
+          <End Role="Equipment" Type="Self.Equipment" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="estado">
-              <PropertyRef Name="id" />
+            <Principal Role="EquipmentType">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="equipo">
-              <PropertyRef Name="estado_id" />
+            <Dependent Role="Equipment">
+              <PropertyRef Name="EquipmentTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rental_Client">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="Rental" Type="Self.Rental" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Rental">
+              <PropertyRef Name="ClientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rental_RentalState">
+          <End Role="RentalState" Type="Self.RentalState" Multiplicity="1" />
+          <End Role="Rental" Type="Self.Rental" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RentalState">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Rental">
+              <PropertyRef Name="RentalStateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rental_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Rental" Type="Self.Rental" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Rental">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RentalDetail_Rental">
+          <End Role="Rental" Type="Self.Rental" Multiplicity="1" />
+          <End Role="RentalDetail" Type="Self.RentalDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rental">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RentalDetail">
+              <PropertyRef Name="RentalId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_usuario_cargo_id">
-          <End Role="cargo" Type="Self.cargo" Multiplicity="1" />
-          <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+          <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="cargo">
-              <PropertyRef Name="id" />
+            <Principal Role="Rol">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="usuario">
-              <PropertyRef Name="cargo_id" />
+            <Dependent Role="User">
+              <PropertyRef Name="RolId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="db_AlquilerEquipoModelStoreContainer">
-          <EntitySet Name="alquiler" EntityType="Self.alquiler" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="alquiler_detalle" EntityType="Self.alquiler_detalle" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="cargo" EntityType="Self.cargo" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="cliente" EntityType="Self.cliente" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="equipo" EntityType="Self.equipo" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="estado" EntityType="Self.estado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DocumentType" EntityType="Self.DocumentType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Equipment" EntityType="Self.Equipment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EquipmentState" EntityType="Self.EquipmentState" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EquipmentType" EntityType="Self.EquipmentType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rental" EntityType="Self.Rental" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RentalDetail" EntityType="Self.RentalDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RentalState" EntityType="Self.RentalState" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="tipo_documento" EntityType="Self.tipo_documento" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="usuario" EntityType="Self.usuario" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="fk_ad_alquiler_id" Association="Self.fk_ad_alquiler_id">
-            <End Role="alquiler" EntitySet="alquiler" />
-            <End Role="alquiler_detalle" EntitySet="alquiler_detalle" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Client_DocumentType" Association="Self.FK_Client_DocumentType">
+            <End Role="DocumentType" EntitySet="DocumentType" />
+            <End Role="Client" EntitySet="Client" />
           </AssociationSet>
-          <AssociationSet Name="fk_ad_equipo_id" Association="Self.fk_ad_equipo_id">
-            <End Role="equipo" EntitySet="equipo" />
-            <End Role="alquiler_detalle" EntitySet="alquiler_detalle" />
+          <AssociationSet Name="FK_Client_Gender" Association="Self.FK_Client_Gender">
+            <End Role="Gender" EntitySet="Gender" />
+            <End Role="Client" EntitySet="Client" />
           </AssociationSet>
-          <AssociationSet Name="fk_alquiler_cliente_id" Association="Self.fk_alquiler_cliente_id">
-            <End Role="cliente" EntitySet="cliente" />
-            <End Role="alquiler" EntitySet="alquiler" />
+          <AssociationSet Name="FK_Client_User" Association="Self.FK_Client_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Client" EntitySet="Client" />
           </AssociationSet>
-          <AssociationSet Name="fk_alquiler_usuario_id" Association="Self.fk_alquiler_usuario_id">
-            <End Role="usuario" EntitySet="usuario" />
-            <End Role="alquiler" EntitySet="alquiler" />
+          <AssociationSet Name="FK_Client_User1" Association="Self.FK_Client_User1">
+            <End Role="User" EntitySet="User" />
+            <End Role="Client" EntitySet="Client" />
           </AssociationSet>
-          <AssociationSet Name="fk_cliente_tipo_documento_id" Association="Self.fk_cliente_tipo_documento_id">
-            <End Role="tipo_documento" EntitySet="tipo_documento" />
-            <End Role="cliente" EntitySet="cliente" />
+          <AssociationSet Name="FK_Equipment_EquipmentState" Association="Self.FK_Equipment_EquipmentState">
+            <End Role="EquipmentState" EntitySet="EquipmentState" />
+            <End Role="Equipment" EntitySet="Equipment" />
           </AssociationSet>
-          <AssociationSet Name="fk_producto_estado_id" Association="Self.fk_producto_estado_id">
-            <End Role="estado" EntitySet="estado" />
-            <End Role="equipo" EntitySet="equipo" />
+          <AssociationSet Name="FK_Equipment_EquipmentType" Association="Self.FK_Equipment_EquipmentType">
+            <End Role="EquipmentType" EntitySet="EquipmentType" />
+            <End Role="Equipment" EntitySet="Equipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rental_Client" Association="Self.FK_Rental_Client">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Rental" EntitySet="Rental" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rental_RentalState" Association="Self.FK_Rental_RentalState">
+            <End Role="RentalState" EntitySet="RentalState" />
+            <End Role="Rental" EntitySet="Rental" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rental_User" Association="Self.FK_Rental_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Rental" EntitySet="Rental" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RentalDetail_Rental" Association="Self.FK_RentalDetail_Rental">
+            <End Role="Rental" EntitySet="Rental" />
+            <End Role="RentalDetail" EntitySet="RentalDetail" />
           </AssociationSet>
           <AssociationSet Name="fk_usuario_cargo_id" Association="Self.fk_usuario_cargo_id">
-            <End Role="cargo" EntitySet="cargo" />
-            <End Role="usuario" EntitySet="usuario" />
+            <End Role="Rol" EntitySet="Rol" />
+            <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -215,109 +334,190 @@
     <edmx:ConceptualModels>
       <Schema Namespace="db_AlquilerEquipoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="db_AlquilerEquipoEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="alquiler" EntityType="db_AlquilerEquipoModel.alquiler" />
-          <EntitySet Name="alquiler_detalle" EntityType="db_AlquilerEquipoModel.alquiler_detalle" />
-          <EntitySet Name="cargo" EntityType="db_AlquilerEquipoModel.cargo" />
-          <EntitySet Name="cliente" EntityType="db_AlquilerEquipoModel.cliente" />
-          <EntitySet Name="equipo" EntityType="db_AlquilerEquipoModel.equipo" />
-          <EntitySet Name="estado" EntityType="db_AlquilerEquipoModel.estado" />
+          <EntitySet Name="Client" EntityType="db_AlquilerEquipoModel.Client" />
+          <EntitySet Name="DocumentType" EntityType="db_AlquilerEquipoModel.DocumentType" />
+          <EntitySet Name="Equipment" EntityType="db_AlquilerEquipoModel.Equipment" />
+          <EntitySet Name="EquipmentState" EntityType="db_AlquilerEquipoModel.EquipmentState" />
+          <EntitySet Name="EquipmentType" EntityType="db_AlquilerEquipoModel.EquipmentType" />
+          <EntitySet Name="Gender" EntityType="db_AlquilerEquipoModel.Gender" />
+          <EntitySet Name="Rental" EntityType="db_AlquilerEquipoModel.Rental" />
+          <EntitySet Name="RentalDetail" EntityType="db_AlquilerEquipoModel.RentalDetail" />
+          <EntitySet Name="RentalState" EntityType="db_AlquilerEquipoModel.RentalState" />
+          <EntitySet Name="Rol" EntityType="db_AlquilerEquipoModel.Rol" />
           <EntitySet Name="sysdiagrams" EntityType="db_AlquilerEquipoModel.sysdiagrams" />
-          <EntitySet Name="tipo_documento" EntityType="db_AlquilerEquipoModel.tipo_documento" />
-          <EntitySet Name="usuario" EntityType="db_AlquilerEquipoModel.usuario" />
-          <AssociationSet Name="fk_ad_alquiler_id" Association="db_AlquilerEquipoModel.fk_ad_alquiler_id">
-            <End Role="alquiler" EntitySet="alquiler" />
-            <End Role="alquiler_detalle" EntitySet="alquiler_detalle" />
+          <EntitySet Name="User" EntityType="db_AlquilerEquipoModel.User" />
+          <AssociationSet Name="FK_Client_DocumentType" Association="db_AlquilerEquipoModel.FK_Client_DocumentType">
+            <End Role="DocumentType" EntitySet="DocumentType" />
+            <End Role="Client" EntitySet="Client" />
           </AssociationSet>
-          <AssociationSet Name="fk_alquiler_cliente_id" Association="db_AlquilerEquipoModel.fk_alquiler_cliente_id">
-            <End Role="cliente" EntitySet="cliente" />
-            <End Role="alquiler" EntitySet="alquiler" />
+          <AssociationSet Name="FK_Client_Gender" Association="db_AlquilerEquipoModel.FK_Client_Gender">
+            <End Role="Gender" EntitySet="Gender" />
+            <End Role="Client" EntitySet="Client" />
           </AssociationSet>
-          <AssociationSet Name="fk_alquiler_usuario_id" Association="db_AlquilerEquipoModel.fk_alquiler_usuario_id">
-            <End Role="usuario" EntitySet="usuario" />
-            <End Role="alquiler" EntitySet="alquiler" />
+          <AssociationSet Name="FK_Client_User" Association="db_AlquilerEquipoModel.FK_Client_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Client" EntitySet="Client" />
           </AssociationSet>
-          <AssociationSet Name="fk_ad_equipo_id" Association="db_AlquilerEquipoModel.fk_ad_equipo_id">
-            <End Role="equipo" EntitySet="equipo" />
-            <End Role="alquiler_detalle" EntitySet="alquiler_detalle" />
+          <AssociationSet Name="FK_Client_User1" Association="db_AlquilerEquipoModel.FK_Client_User1">
+            <End Role="User" EntitySet="User" />
+            <End Role="Client" EntitySet="Client" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rental_Client" Association="db_AlquilerEquipoModel.FK_Rental_Client">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Rental" EntitySet="Rental" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Equipment_EquipmentState" Association="db_AlquilerEquipoModel.FK_Equipment_EquipmentState">
+            <End Role="EquipmentState" EntitySet="EquipmentState" />
+            <End Role="Equipment" EntitySet="Equipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Equipment_EquipmentType" Association="db_AlquilerEquipoModel.FK_Equipment_EquipmentType">
+            <End Role="EquipmentType" EntitySet="EquipmentType" />
+            <End Role="Equipment" EntitySet="Equipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rental_RentalState" Association="db_AlquilerEquipoModel.FK_Rental_RentalState">
+            <End Role="RentalState" EntitySet="RentalState" />
+            <End Role="Rental" EntitySet="Rental" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rental_User" Association="db_AlquilerEquipoModel.FK_Rental_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Rental" EntitySet="Rental" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RentalDetail_Rental" Association="db_AlquilerEquipoModel.FK_RentalDetail_Rental">
+            <End Role="Rental" EntitySet="Rental" />
+            <End Role="RentalDetail" EntitySet="RentalDetail" />
           </AssociationSet>
           <AssociationSet Name="fk_usuario_cargo_id" Association="db_AlquilerEquipoModel.fk_usuario_cargo_id">
-            <End Role="cargo" EntitySet="cargo" />
-            <End Role="usuario" EntitySet="usuario" />
-          </AssociationSet>
-          <AssociationSet Name="fk_cliente_tipo_documento_id" Association="db_AlquilerEquipoModel.fk_cliente_tipo_documento_id">
-            <End Role="tipo_documento" EntitySet="tipo_documento" />
-            <End Role="cliente" EntitySet="cliente" />
-          </AssociationSet>
-          <AssociationSet Name="fk_producto_estado_id" Association="db_AlquilerEquipoModel.fk_producto_estado_id">
-            <End Role="estado" EntitySet="estado" />
-            <End Role="equipo" EntitySet="equipo" />
+            <End Role="Rol" EntitySet="Rol" />
+            <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="alquiler">
+        <EntityType Name="Client">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="total" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
-          <Property Name="fecha_registro" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="cliente_id" Type="Int32" Nullable="false" />
-          <Property Name="usuario_id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="alquiler_detalle" Relationship="db_AlquilerEquipoModel.fk_ad_alquiler_id" FromRole="alquiler" ToRole="alquiler_detalle" />
-          <NavigationProperty Name="cliente" Relationship="db_AlquilerEquipoModel.fk_alquiler_cliente_id" FromRole="alquiler" ToRole="cliente" />
-          <NavigationProperty Name="usuario" Relationship="db_AlquilerEquipoModel.fk_alquiler_usuario_id" FromRole="alquiler" ToRole="usuario" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="MotherLastName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FatherLastName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="GenderId" Type="Int32" Nullable="false" />
+          <Property Name="DocumentNumber" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DocumentTypeId" Type="Int32" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Age" Type="Int32" Nullable="false" />
+          <Property Name="MobileNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UserCreatedId" Type="Int32" Nullable="false" />
+          <Property Name="UserModifiedId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DocumentType" Relationship="db_AlquilerEquipoModel.FK_Client_DocumentType" FromRole="Client" ToRole="DocumentType" />
+          <NavigationProperty Name="Gender" Relationship="db_AlquilerEquipoModel.FK_Client_Gender" FromRole="Client" ToRole="Gender" />
+          <NavigationProperty Name="User" Relationship="db_AlquilerEquipoModel.FK_Client_User" FromRole="Client" ToRole="User" />
+          <NavigationProperty Name="User1" Relationship="db_AlquilerEquipoModel.FK_Client_User1" FromRole="Client" ToRole="User" />
+          <NavigationProperty Name="Rental" Relationship="db_AlquilerEquipoModel.FK_Rental_Client" FromRole="Client" ToRole="Rental" />
         </EntityType>
-        <EntityType Name="alquiler_detalle">
+        <EntityType Name="DocumentType">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="precio" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
-          <Property Name="equipo_id" Type="Int32" Nullable="false" />
-          <Property Name="alquiler_id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="alquiler" Relationship="db_AlquilerEquipoModel.fk_ad_alquiler_id" FromRole="alquiler_detalle" ToRole="alquiler" />
-          <NavigationProperty Name="equipo" Relationship="db_AlquilerEquipoModel.fk_ad_equipo_id" FromRole="alquiler_detalle" ToRole="equipo" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Client" Relationship="db_AlquilerEquipoModel.FK_Client_DocumentType" FromRole="DocumentType" ToRole="Client" />
         </EntityType>
-        <EntityType Name="cargo">
+        <EntityType Name="Equipment">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="nombre" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="usuario" Relationship="db_AlquilerEquipoModel.fk_usuario_cargo_id" FromRole="cargo" ToRole="usuario" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Cost" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="EquipmentStateId" Type="Int32" Nullable="false" />
+          <Property Name="Stock" Type="Int32" Nullable="false" />
+          <Property Name="EquipmentTypeId" Type="Int32" Nullable="false" />
+          <Property Name="PriceByHour" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="PriceByDay" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="PriceByWeek" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="ExtraHour" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="ExtraDay" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="ImagePath" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EquipmentState" Relationship="db_AlquilerEquipoModel.FK_Equipment_EquipmentState" FromRole="Equipment" ToRole="EquipmentState" />
+          <NavigationProperty Name="EquipmentType" Relationship="db_AlquilerEquipoModel.FK_Equipment_EquipmentType" FromRole="Equipment" ToRole="EquipmentType" />
         </EntityType>
-        <EntityType Name="cliente">
+        <EntityType Name="EquipmentState">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="nombre" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="sexo" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
-          <Property Name="documento" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="tipo_documento_id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="alquiler" Relationship="db_AlquilerEquipoModel.fk_alquiler_cliente_id" FromRole="cliente" ToRole="alquiler" />
-          <NavigationProperty Name="tipo_documento" Relationship="db_AlquilerEquipoModel.fk_cliente_tipo_documento_id" FromRole="cliente" ToRole="tipo_documento" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Equipment" Relationship="db_AlquilerEquipoModel.FK_Equipment_EquipmentState" FromRole="EquipmentState" ToRole="Equipment" />
         </EntityType>
-        <EntityType Name="equipo">
+        <EntityType Name="EquipmentType">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="codigo" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="nombre" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="descripcion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="costo" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
-          <Property Name="estado_id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="alquiler_detalle" Relationship="db_AlquilerEquipoModel.fk_ad_equipo_id" FromRole="equipo" ToRole="alquiler_detalle" />
-          <NavigationProperty Name="estado" Relationship="db_AlquilerEquipoModel.fk_producto_estado_id" FromRole="equipo" ToRole="estado" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Equipment" Relationship="db_AlquilerEquipoModel.FK_Equipment_EquipmentType" FromRole="EquipmentType" ToRole="Equipment" />
         </EntityType>
-        <EntityType Name="estado">
+        <EntityType Name="Gender">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="nombre" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="equipo" Relationship="db_AlquilerEquipoModel.fk_producto_estado_id" FromRole="estado" ToRole="equipo" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Client" Relationship="db_AlquilerEquipoModel.FK_Client_Gender" FromRole="Gender" ToRole="Client" />
+        </EntityType>
+        <EntityType Name="Rental">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TotalPrice" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ClientId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="RentalStateId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Client" Relationship="db_AlquilerEquipoModel.FK_Rental_Client" FromRole="Rental" ToRole="Client" />
+          <NavigationProperty Name="RentalState" Relationship="db_AlquilerEquipoModel.FK_Rental_RentalState" FromRole="Rental" ToRole="RentalState" />
+          <NavigationProperty Name="User" Relationship="db_AlquilerEquipoModel.FK_Rental_User" FromRole="Rental" ToRole="User" />
+          <NavigationProperty Name="RentalDetail" Relationship="db_AlquilerEquipoModel.FK_RentalDetail_Rental" FromRole="Rental" ToRole="RentalDetail" />
+        </EntityType>
+        <EntityType Name="RentalDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SubTotal" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="EquipmentId" Type="Int32" Nullable="false" />
+          <Property Name="RentalId" Type="Int32" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ExpirationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Rental" Relationship="db_AlquilerEquipoModel.FK_RentalDetail_Rental" FromRole="RentalDetail" ToRole="Rental" />
+        </EntityType>
+        <EntityType Name="RentalState">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Rental" Relationship="db_AlquilerEquipoModel.FK_Rental_RentalState" FromRole="RentalState" ToRole="Rental" />
+        </EntityType>
+        <EntityType Name="Rol">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="User" Relationship="db_AlquilerEquipoModel.fk_usuario_cargo_id" FromRole="Rol" ToRole="User" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -329,107 +529,153 @@
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
-        <EntityType Name="tipo_documento">
+        <EntityType Name="User">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="cliente" Relationship="db_AlquilerEquipoModel.fk_cliente_tipo_documento_id" FromRole="tipo_documento" ToRole="cliente" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MotherLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FatherLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NameUser" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="RolId" Type="Int32" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MobileNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Client" Relationship="db_AlquilerEquipoModel.FK_Client_User" FromRole="User" ToRole="Client" />
+          <NavigationProperty Name="Client1" Relationship="db_AlquilerEquipoModel.FK_Client_User1" FromRole="User" ToRole="Client" />
+          <NavigationProperty Name="Rental" Relationship="db_AlquilerEquipoModel.FK_Rental_User" FromRole="User" ToRole="Rental" />
+          <NavigationProperty Name="Rol" Relationship="db_AlquilerEquipoModel.fk_usuario_cargo_id" FromRole="User" ToRole="Rol" />
         </EntityType>
-        <EntityType Name="usuario">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="nombre" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="usuario1" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="clave" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="cargo_id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="alquiler" Relationship="db_AlquilerEquipoModel.fk_alquiler_usuario_id" FromRole="usuario" ToRole="alquiler" />
-          <NavigationProperty Name="cargo" Relationship="db_AlquilerEquipoModel.fk_usuario_cargo_id" FromRole="usuario" ToRole="cargo" />
-        </EntityType>
-        <Association Name="fk_ad_alquiler_id">
-          <End Type="db_AlquilerEquipoModel.alquiler" Role="alquiler" Multiplicity="1" />
-          <End Type="db_AlquilerEquipoModel.alquiler_detalle" Role="alquiler_detalle" Multiplicity="*" />
+        <Association Name="FK_Client_DocumentType">
+          <End Type="db_AlquilerEquipoModel.DocumentType" Role="DocumentType" Multiplicity="1" />
+          <End Type="db_AlquilerEquipoModel.Client" Role="Client" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="alquiler">
-              <PropertyRef Name="id" />
+            <Principal Role="DocumentType">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="alquiler_detalle">
-              <PropertyRef Name="alquiler_id" />
+            <Dependent Role="Client">
+              <PropertyRef Name="DocumentTypeId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_alquiler_cliente_id">
-          <End Type="db_AlquilerEquipoModel.cliente" Role="cliente" Multiplicity="1" />
-          <End Type="db_AlquilerEquipoModel.alquiler" Role="alquiler" Multiplicity="*" />
+        <Association Name="FK_Client_Gender">
+          <End Type="db_AlquilerEquipoModel.Gender" Role="Gender" Multiplicity="1" />
+          <End Type="db_AlquilerEquipoModel.Client" Role="Client" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="cliente">
-              <PropertyRef Name="id" />
+            <Principal Role="Gender">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="alquiler">
-              <PropertyRef Name="cliente_id" />
+            <Dependent Role="Client">
+              <PropertyRef Name="GenderId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_alquiler_usuario_id">
-          <End Type="db_AlquilerEquipoModel.usuario" Role="usuario" Multiplicity="1" />
-          <End Type="db_AlquilerEquipoModel.alquiler" Role="alquiler" Multiplicity="*" />
+        <Association Name="FK_Client_User">
+          <End Type="db_AlquilerEquipoModel.User" Role="User" Multiplicity="1" />
+          <End Type="db_AlquilerEquipoModel.Client" Role="Client" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="usuario">
-              <PropertyRef Name="id" />
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="alquiler">
-              <PropertyRef Name="usuario_id" />
+            <Dependent Role="Client">
+              <PropertyRef Name="UserCreatedId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_ad_equipo_id">
-          <End Type="db_AlquilerEquipoModel.equipo" Role="equipo" Multiplicity="1" />
-          <End Type="db_AlquilerEquipoModel.alquiler_detalle" Role="alquiler_detalle" Multiplicity="*" />
+        <Association Name="FK_Client_User1">
+          <End Type="db_AlquilerEquipoModel.User" Role="User" Multiplicity="1" />
+          <End Type="db_AlquilerEquipoModel.Client" Role="Client" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="equipo">
-              <PropertyRef Name="id" />
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="alquiler_detalle">
-              <PropertyRef Name="equipo_id" />
+            <Dependent Role="Client">
+              <PropertyRef Name="UserModifiedId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rental_Client">
+          <End Type="db_AlquilerEquipoModel.Client" Role="Client" Multiplicity="1" />
+          <End Type="db_AlquilerEquipoModel.Rental" Role="Rental" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Rental">
+              <PropertyRef Name="ClientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Equipment_EquipmentState">
+          <End Type="db_AlquilerEquipoModel.EquipmentState" Role="EquipmentState" Multiplicity="1" />
+          <End Type="db_AlquilerEquipoModel.Equipment" Role="Equipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EquipmentState">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Equipment">
+              <PropertyRef Name="EquipmentStateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Equipment_EquipmentType">
+          <End Type="db_AlquilerEquipoModel.EquipmentType" Role="EquipmentType" Multiplicity="1" />
+          <End Type="db_AlquilerEquipoModel.Equipment" Role="Equipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EquipmentType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Equipment">
+              <PropertyRef Name="EquipmentTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rental_RentalState">
+          <End Type="db_AlquilerEquipoModel.RentalState" Role="RentalState" Multiplicity="1" />
+          <End Type="db_AlquilerEquipoModel.Rental" Role="Rental" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RentalState">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Rental">
+              <PropertyRef Name="RentalStateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rental_User">
+          <End Type="db_AlquilerEquipoModel.User" Role="User" Multiplicity="1" />
+          <End Type="db_AlquilerEquipoModel.Rental" Role="Rental" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Rental">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RentalDetail_Rental">
+          <End Type="db_AlquilerEquipoModel.Rental" Role="Rental" Multiplicity="1" />
+          <End Type="db_AlquilerEquipoModel.RentalDetail" Role="RentalDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rental">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RentalDetail">
+              <PropertyRef Name="RentalId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_usuario_cargo_id">
-          <End Type="db_AlquilerEquipoModel.cargo" Role="cargo" Multiplicity="1" />
-          <End Type="db_AlquilerEquipoModel.usuario" Role="usuario" Multiplicity="*" />
+          <End Type="db_AlquilerEquipoModel.Rol" Role="Rol" Multiplicity="1" />
+          <End Type="db_AlquilerEquipoModel.User" Role="User" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="cargo">
-              <PropertyRef Name="id" />
+            <Principal Role="Rol">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="usuario">
-              <PropertyRef Name="cargo_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_cliente_tipo_documento_id">
-          <End Type="db_AlquilerEquipoModel.tipo_documento" Role="tipo_documento" Multiplicity="1" />
-          <End Type="db_AlquilerEquipoModel.cliente" Role="cliente" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tipo_documento">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="cliente">
-              <PropertyRef Name="tipo_documento_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_producto_estado_id">
-          <End Type="db_AlquilerEquipoModel.estado" Role="estado" Multiplicity="1" />
-          <End Type="db_AlquilerEquipoModel.equipo" Role="equipo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="estado">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="equipo">
-              <PropertyRef Name="estado_id" />
+            <Dependent Role="User">
+              <PropertyRef Name="RolId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -439,64 +685,123 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="db_AlquilerEquipoModelStoreContainer" CdmEntityContainer="db_AlquilerEquipoEntities">
-          <EntitySetMapping Name="alquiler">
-            <EntityTypeMapping TypeName="db_AlquilerEquipoModel.alquiler">
-              <MappingFragment StoreEntitySet="alquiler">
-                <ScalarProperty Name="usuario_id" ColumnName="usuario_id" />
-                <ScalarProperty Name="cliente_id" ColumnName="cliente_id" />
-                <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
-                <ScalarProperty Name="total" ColumnName="total" />
-                <ScalarProperty Name="fecha" ColumnName="fecha" />
-                <ScalarProperty Name="id" ColumnName="id" />
+          <EntitySetMapping Name="Client">
+            <EntityTypeMapping TypeName="db_AlquilerEquipoModel.Client">
+              <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="UserModifiedId" ColumnName="UserModifiedId" />
+                <ScalarProperty Name="UserCreatedId" ColumnName="UserCreatedId" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DocumentTypeId" ColumnName="DocumentTypeId" />
+                <ScalarProperty Name="DocumentNumber" ColumnName="DocumentNumber" />
+                <ScalarProperty Name="GenderId" ColumnName="GenderId" />
+                <ScalarProperty Name="FatherLastName" ColumnName="FatherLastName" />
+                <ScalarProperty Name="MotherLastName" ColumnName="MotherLastName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="alquiler_detalle">
-            <EntityTypeMapping TypeName="db_AlquilerEquipoModel.alquiler_detalle">
-              <MappingFragment StoreEntitySet="alquiler_detalle">
-                <ScalarProperty Name="alquiler_id" ColumnName="alquiler_id" />
-                <ScalarProperty Name="equipo_id" ColumnName="equipo_id" />
-                <ScalarProperty Name="precio" ColumnName="precio" />
-                <ScalarProperty Name="id" ColumnName="id" />
+          <EntitySetMapping Name="DocumentType">
+            <EntityTypeMapping TypeName="db_AlquilerEquipoModel.DocumentType">
+              <MappingFragment StoreEntitySet="DocumentType">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="cargo">
-            <EntityTypeMapping TypeName="db_AlquilerEquipoModel.cargo">
-              <MappingFragment StoreEntitySet="cargo">
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="id" ColumnName="id" />
+          <EntitySetMapping Name="Equipment">
+            <EntityTypeMapping TypeName="db_AlquilerEquipoModel.Equipment">
+              <MappingFragment StoreEntitySet="Equipment">
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="ExtraDay" ColumnName="ExtraDay" />
+                <ScalarProperty Name="ExtraHour" ColumnName="ExtraHour" />
+                <ScalarProperty Name="PriceByWeek" ColumnName="PriceByWeek" />
+                <ScalarProperty Name="PriceByDay" ColumnName="PriceByDay" />
+                <ScalarProperty Name="PriceByHour" ColumnName="PriceByHour" />
+                <ScalarProperty Name="EquipmentTypeId" ColumnName="EquipmentTypeId" />
+                <ScalarProperty Name="Stock" ColumnName="Stock" />
+                <ScalarProperty Name="EquipmentStateId" ColumnName="EquipmentStateId" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="cliente">
-            <EntityTypeMapping TypeName="db_AlquilerEquipoModel.cliente">
-              <MappingFragment StoreEntitySet="cliente">
-                <ScalarProperty Name="tipo_documento_id" ColumnName="tipo_documento_id" />
-                <ScalarProperty Name="documento" ColumnName="documento" />
-                <ScalarProperty Name="sexo" ColumnName="sexo" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="id" ColumnName="id" />
+          <EntitySetMapping Name="EquipmentState">
+            <EntityTypeMapping TypeName="db_AlquilerEquipoModel.EquipmentState">
+              <MappingFragment StoreEntitySet="EquipmentState">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="equipo">
-            <EntityTypeMapping TypeName="db_AlquilerEquipoModel.equipo">
-              <MappingFragment StoreEntitySet="equipo">
-                <ScalarProperty Name="estado_id" ColumnName="estado_id" />
-                <ScalarProperty Name="costo" ColumnName="costo" />
-                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="codigo" ColumnName="codigo" />
-                <ScalarProperty Name="id" ColumnName="id" />
+          <EntitySetMapping Name="EquipmentType">
+            <EntityTypeMapping TypeName="db_AlquilerEquipoModel.EquipmentType">
+              <MappingFragment StoreEntitySet="EquipmentType">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="estado">
-            <EntityTypeMapping TypeName="db_AlquilerEquipoModel.estado">
-              <MappingFragment StoreEntitySet="estado">
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="id" ColumnName="id" />
+          <EntitySetMapping Name="Gender">
+            <EntityTypeMapping TypeName="db_AlquilerEquipoModel.Gender">
+              <MappingFragment StoreEntitySet="Gender">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rental">
+            <EntityTypeMapping TypeName="db_AlquilerEquipoModel.Rental">
+              <MappingFragment StoreEntitySet="Rental">
+                <ScalarProperty Name="RentalStateId" ColumnName="RentalStateId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RentalDetail">
+            <EntityTypeMapping TypeName="db_AlquilerEquipoModel.RentalDetail">
+              <MappingFragment StoreEntitySet="RentalDetail">
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="ExpirationDate" ColumnName="ExpirationDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="RentalId" ColumnName="RentalId" />
+                <ScalarProperty Name="EquipmentId" ColumnName="EquipmentId" />
+                <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RentalState">
+            <EntityTypeMapping TypeName="db_AlquilerEquipoModel.RentalState">
+              <MappingFragment StoreEntitySet="RentalState">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rol">
+            <EntityTypeMapping TypeName="db_AlquilerEquipoModel.Rol">
+              <MappingFragment StoreEntitySet="Rol">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -511,22 +816,18 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="tipo_documento">
-            <EntityTypeMapping TypeName="db_AlquilerEquipoModel.tipo_documento">
-              <MappingFragment StoreEntitySet="tipo_documento">
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="usuario">
-            <EntityTypeMapping TypeName="db_AlquilerEquipoModel.usuario">
-              <MappingFragment StoreEntitySet="usuario">
-                <ScalarProperty Name="cargo_id" ColumnName="cargo_id" />
-                <ScalarProperty Name="clave" ColumnName="clave" />
-                <ScalarProperty Name="usuario1" ColumnName="usuario" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="id" ColumnName="id" />
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="db_AlquilerEquipoModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="RolId" ColumnName="RolId" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="NameUser" ColumnName="NameUser" />
+                <ScalarProperty Name="FatherLastName" ColumnName="FatherLastName" />
+                <ScalarProperty Name="MotherLastName" ColumnName="MotherLastName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -1,0 +1,99 @@
+﻿@model SI656_AlquilerEquipos.Web.ViewModel.Client.CreateViewModel
+
+@{
+    ViewBag.Title = "Agregar cliente";
+}
+<br />
+<h2>Agregar Cliente</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-row">
+            <div class="col-md-6 form-group">
+                @Html.LabelFor(x => x.Name, htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(x => x.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(x => x.Name, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-6 form-group">
+                @Html.LabelFor(x => x.MotherLastName, htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(x => x.MotherLastName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(x => x.MotherLastName, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6 form-group">
+                @Html.LabelFor(x => x.MotherLastName, htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(x => x.MotherLastName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(x => x.MotherLastName, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6 form-group">
+                @Html.LabelFor(x => x.FatherLastName, htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(x => x.FatherLastName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(x => x.FatherLastName, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6 form-group">
+                @Html.LabelFor(x => x.GenderId, htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.DropDownListFor(x => x.GenderId, new SelectList(Model.GenderList, "Id", "Name"), "- Seleccione -", new { @class = "form-control", @required = "required" })
+                @Html.ValidationMessageFor(x => x.GenderId, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6 form-group">
+                @Html.LabelFor(x => x.DocumentType, htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.DropDownListFor(x => x.DocumentType, new SelectList(Model.DocumentTypes, "id", "nombre"), "- Seleccione -", new { @class = "form-control", @required = "required" })
+                @Html.ValidationMessageFor(x => x.DocumentType, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6 form-group">
+                @Html.LabelFor(x => x.DocumentNumber, htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(x => x.DocumentNumber, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(x => x.DocumentNumber, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6 form-group">
+                @Html.LabelFor(x => x.Email, htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(x => x.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(x => x.Email, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6 form-group">
+                @Html.LabelFor(x => x.Address, htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(x => x.Address, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(x => x.Address, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6 form-group">
+                @Html.LabelFor(x => x.Age, htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(x => x.Age, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(x => x.Age, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6 form-group">
+                @Html.LabelFor(x => x.MobileNumber, htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(x => x.MobileNumber, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(x => x.MobileNumber, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group text-right">
+            <div class="col-md-offset-2 col-md-12">
+                <input type="submit" value="Añadir" class="btn btn-info btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Regresar a la lista", "Index")
+</div>
+<br />
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

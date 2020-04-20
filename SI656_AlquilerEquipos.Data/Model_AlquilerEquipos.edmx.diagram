@@ -5,22 +5,29 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="814d1201125b4a71bac6325d0cc7dfd7" Name="Diagram1">
-        <EntityTypeShape EntityType="db_AlquilerEquipoModel.alquiler" Width="1.5" PointX="5.25" PointY="1" />
-        <EntityTypeShape EntityType="db_AlquilerEquipoModel.alquiler_detalle" Width="1.5" PointX="7.5" PointY="1.25" />
-        <EntityTypeShape EntityType="db_AlquilerEquipoModel.cargo" Width="1.5" PointX="0.75" PointY="5.5" />
-        <EntityTypeShape EntityType="db_AlquilerEquipoModel.cliente" Width="1.5" PointX="3" PointY="1.125" />
-        <EntityTypeShape EntityType="db_AlquilerEquipoModel.equipo" Width="1.5" PointX="5.25" PointY="9" />
-        <EntityTypeShape EntityType="db_AlquilerEquipoModel.estado" Width="1.5" PointX="3" PointY="9.5" />
-        <EntityTypeShape EntityType="db_AlquilerEquipoModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="4.75" />
-        <EntityTypeShape EntityType="db_AlquilerEquipoModel.tipo_documento" Width="1.5" PointX="0.75" PointY="1.5" />
-        <EntityTypeShape EntityType="db_AlquilerEquipoModel.usuario" Width="1.5" PointX="3" PointY="5.125" />
-        <AssociationConnector Association="db_AlquilerEquipoModel.fk_ad_alquiler_id" />
-        <AssociationConnector Association="db_AlquilerEquipoModel.fk_alquiler_cliente_id" />
-        <AssociationConnector Association="db_AlquilerEquipoModel.fk_alquiler_usuario_id" />
-        <AssociationConnector Association="db_AlquilerEquipoModel.fk_ad_equipo_id" />
+        <EntityTypeShape EntityType="db_AlquilerEquipoModel.Client" Width="1.5" PointX="5.25" PointY="1" />
+        <EntityTypeShape EntityType="db_AlquilerEquipoModel.DocumentType" Width="1.5" PointX="3" PointY="6.25" />
+        <EntityTypeShape EntityType="db_AlquilerEquipoModel.Equipment" Width="1.5" PointX="10" PointY="6" />
+        <EntityTypeShape EntityType="db_AlquilerEquipoModel.EquipmentState" Width="1.5" PointX="7.75" PointY="10.125" />
+        <EntityTypeShape EntityType="db_AlquilerEquipoModel.EquipmentType" Width="1.5" PointX="7.75" PointY="7.125" />
+        <EntityTypeShape EntityType="db_AlquilerEquipoModel.Gender" Width="1.5" PointX="3" PointY="9.75" />
+        <EntityTypeShape EntityType="db_AlquilerEquipoModel.Rental" Width="1.5" PointX="7.5" PointY="1.875" />
+        <EntityTypeShape EntityType="db_AlquilerEquipoModel.RentalDetail" Width="1.5" PointX="9.75" PointY="2.125" />
+        <EntityTypeShape EntityType="db_AlquilerEquipoModel.RentalState" Width="1.5" PointX="5.25" PointY="7.5" />
+        <EntityTypeShape EntityType="db_AlquilerEquipoModel.Rol" Width="1.5" PointX="0.75" PointY="2.5" />
+        <EntityTypeShape EntityType="db_AlquilerEquipoModel.sysdiagrams" Width="1.5" PointX="11.75" PointY="0.75" />
+        <EntityTypeShape EntityType="db_AlquilerEquipoModel.User" Width="1.5" PointX="3" PointY="1.625" />
+        <AssociationConnector Association="db_AlquilerEquipoModel.FK_Client_DocumentType" />
+        <AssociationConnector Association="db_AlquilerEquipoModel.FK_Client_Gender" />
+        <AssociationConnector Association="db_AlquilerEquipoModel.FK_Client_User" />
+        <AssociationConnector Association="db_AlquilerEquipoModel.FK_Client_User1" />
+        <AssociationConnector Association="db_AlquilerEquipoModel.FK_Rental_Client" />
+        <AssociationConnector Association="db_AlquilerEquipoModel.FK_Equipment_EquipmentState" />
+        <AssociationConnector Association="db_AlquilerEquipoModel.FK_Equipment_EquipmentType" />
+        <AssociationConnector Association="db_AlquilerEquipoModel.FK_Rental_RentalState" />
+        <AssociationConnector Association="db_AlquilerEquipoModel.FK_Rental_User" />
+        <AssociationConnector Association="db_AlquilerEquipoModel.FK_RentalDetail_Rental" />
         <AssociationConnector Association="db_AlquilerEquipoModel.fk_usuario_cargo_id" />
-        <AssociationConnector Association="db_AlquilerEquipoModel.fk_cliente_tipo_documento_id" />
-        <AssociationConnector Association="db_AlquilerEquipoModel.fk_producto_estado_id" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

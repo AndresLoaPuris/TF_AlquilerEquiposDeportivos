@@ -25,14 +25,17 @@ namespace SI656_AlquilerEquipos.Data
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<alquiler> alquiler { get; set; }
-        public virtual DbSet<alquiler_detalle> alquiler_detalle { get; set; }
-        public virtual DbSet<cargo> cargo { get; set; }
-        public virtual DbSet<cliente> cliente { get; set; }
-        public virtual DbSet<equipo> equipo { get; set; }
-        public virtual DbSet<estado> estado { get; set; }
+        public virtual DbSet<Client> Client { get; set; }
+        public virtual DbSet<DocumentType> DocumentType { get; set; }
+        public virtual DbSet<Equipment> Equipment { get; set; }
+        public virtual DbSet<EquipmentState> EquipmentState { get; set; }
+        public virtual DbSet<EquipmentType> EquipmentType { get; set; }
+        public virtual DbSet<Gender> Gender { get; set; }
+        public virtual DbSet<Rental> Rental { get; set; }
+        public virtual DbSet<RentalDetail> RentalDetail { get; set; }
+        public virtual DbSet<RentalState> RentalState { get; set; }
+        public virtual DbSet<Rol> Rol { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<tipo_documento> tipo_documento { get; set; }
-        public virtual DbSet<usuario> usuario { get; set; }
+        public virtual DbSet<User> User { get; set; }
     }
 }

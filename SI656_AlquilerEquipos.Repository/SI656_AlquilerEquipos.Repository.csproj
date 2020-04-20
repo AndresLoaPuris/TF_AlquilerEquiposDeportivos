@@ -48,16 +48,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EntityFrameworkDataAccess\AlquilerRepository.cs" />
+    <Compile Include="EntityFrameworkDataAccess\DocumentTypeRepository.cs" />
+    <Compile Include="EntityFrameworkDataAccess\GenderRepository.cs" />
+    <Compile Include="EntityFrameworkDataAccess\Interface\IDocumentTypeRepository.cs" />
+    <Compile Include="EntityFrameworkDataAccess\Interface\IGenderRepository.cs" />
+    <Compile Include="EntityFrameworkDataAccess\RentalRepository.cs" />
     <Compile Include="EntityFrameworkDataAccess\BaseRepository.cs" />
-    <Compile Include="EntityFrameworkDataAccess\ClienteRepository.cs" />
-    <Compile Include="EntityFrameworkDataAccess\EquipoRepository.cs" />
-    <Compile Include="EntityFrameworkDataAccess\Interface\IAlquierRepository.cs" />
+    <Compile Include="EntityFrameworkDataAccess\ClientRepository.cs" />
+    <Compile Include="EntityFrameworkDataAccess\EquipmentRepository.cs" />
+    <Compile Include="EntityFrameworkDataAccess\Interface\IRentalRepository.cs" />
     <Compile Include="EntityFrameworkDataAccess\Interface\IBaseRepository.cs" />
-    <Compile Include="EntityFrameworkDataAccess\Interface\IClienteRepository.cs" />
-    <Compile Include="EntityFrameworkDataAccess\Interface\IEquipoRepository.cs" />
-    <Compile Include="EntityFrameworkDataAccess\Interface\IUsuarioRepository.cs" />
-    <Compile Include="EntityFrameworkDataAccess\UsuarioRepository.cs" />
+    <Compile Include="EntityFrameworkDataAccess\Interface\IClientRepository.cs" />
+    <Compile Include="EntityFrameworkDataAccess\Interface\IEquipmentRepository.cs" />
+    <Compile Include="EntityFrameworkDataAccess\Interface\IUserRepository.cs" />
+    <Compile Include="EntityFrameworkDataAccess\UserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
