@@ -16,7 +16,7 @@ namespace SI656_Alquiler_Equipos
 			routes.MapRoute(
 				name: "Default",
 				url: "{controller}/{action}/{id}",
-				defaults: new { controller = "Users", action = "Index", id = UrlParameter.Optional }
+				defaults: new { controller = "Clients", action = "Index", id = UrlParameter.Optional }
 			);
 		}
 	}

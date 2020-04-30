@@ -10,6 +10,7 @@ using SI656_Alquiler_Equipos.Models;
 
 namespace SI656_Alquiler_Equipos.Controllers
 {
+    [Authorize]
     public class EquipmentsController : Controller
     {
         private db_AlquilerEquipoEntities db = new db_AlquilerEquipoEntities();
