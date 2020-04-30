@@ -18,7 +18,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="@Url.Action("Index","Home")">
             <div class="sidebar-brand-icon">
                 <i class="fas fa-snowboarding"></i>
             </div>
@@ -88,7 +88,7 @@
                                 <span class="mr-2 d-none d-lg-inline text-gray-900 medium">@User.Identity.Name</span>
                             </a>    
                                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href='@Url.Action("Index", "Users")'>
                                         <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                         Profile
                                     </a>

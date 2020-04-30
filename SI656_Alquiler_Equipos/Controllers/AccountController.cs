@@ -25,7 +25,7 @@ namespace SI656_Alquiler_Equipos.Controllers
             bool isValid = db.User.Any(x => x.NameUser == userLogin.NameUser && x.Password == userLogin.Password);
             if (isValid) {
                 FormsAuthentication.SetAuthCookie(userLogin.NameUser, false);
-                return RedirectToAction("Index", "Users");
+                return RedirectToAction("Index", "Home");
             }
             ModelState.AddModelError("", "Invalid UserName and Password");
             return View();

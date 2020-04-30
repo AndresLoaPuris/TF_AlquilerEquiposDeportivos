@@ -41,10 +41,10 @@
                             @Html.DisplayNameFor(model => model.PriceByWeek)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.EquipmentState.Name)
+                            @Html.DisplayName("Estado Equipo")
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.EquipmentType.Name)
+                            @Html.DisplayName("Tipo Equipo")
                         </th>
                         <th></th>
                     </tr>
@@ -77,9 +77,9 @@
                                 @Html.DisplayFor(modelItem => item.EquipmentType.Name)
                             </td>
                             <td>
-                                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                                @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+                                @Html.ActionLink("Detalles", "Details", new { id = item.Id }) |
+                                @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
                             </td>
                         </tr>
                     }

@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace SI656_Alquiler_Equipos.Controllers
 {
+	[Authorize]
 	public class HomeController : Controller
 	{
 		public ActionResult Index()

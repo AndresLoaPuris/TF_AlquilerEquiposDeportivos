@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -41,6 +42,7 @@ namespace SI656_Alquiler_Equipos.Controllers
         // GET: Users/Edit/5
         public ActionResult Edit(int? id)
         {
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -52,8 +54,8 @@ namespace SI656_Alquiler_Equipos.Controllers
             }
             ViewBag.RolId = new SelectList(db.Rol, "Id", "Name", user.RolId);
             return View(user);
-        }
 
+        }
         // POST: Users/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.

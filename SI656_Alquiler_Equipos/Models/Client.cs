@@ -11,7 +11,8 @@ namespace SI656_Alquiler_Equipos.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Client
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,18 +22,45 @@ namespace SI656_Alquiler_Equipos.Models
         }
     
         public int Id { get; set; }
+        [Required]
+        [Display(Name = "Nombres")]
         public string Name { get; set; }
+        [Required]
+        [Display(Name = "Apellido Materno")]
         public string MotherLastName { get; set; }
+        [Required]
+        [Display(Name = "Apellido Paterno")]
         public string FatherLastName { get; set; }
+        [Required]
         public string Gender { get; set; }
+        [Required]
+        [Display(Name = "Numero Documento")]
         public string DocumentNumber { get; set; }
+        [Required]
+        [Display(Name = "Tipo Documento")]
         public int DocumentTypeId { get; set; }
+        [Required]
+        [Display(Name = "Email")]
+        [EmailAddress]
         public string Email { get; set; }
+        [Required]
+        [Display(Name = "Direccion")]
         public string Address { get; set; }
+        [Required]
+        [Range(18, 50)]
+        [Display(Name = "Edad")]
         public int Age { get; set; }
+        [Required]
+        [Display(Name = "Telefono")]
         public string MobileNumber { get; set; }
+        [Required]
+        [Display(Name = "Dia Registrado")]
         public System.DateTime DateCreated { get; set; }
+        [Required]
+        [Display(Name = "Registrado por Usuario")]
         public int UserCreatedId { get; set; }
+        [Required]
+        [Display(Name = "Modificado por Usuario ")]
         public int UserModifiedId { get; set; }
     
         public virtual DocumentType DocumentType { get; set; }

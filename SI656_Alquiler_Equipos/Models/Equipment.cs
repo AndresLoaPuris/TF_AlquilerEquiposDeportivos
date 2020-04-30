@@ -11,7 +11,8 @@ namespace SI656_Alquiler_Equipos.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Equipment
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,19 +22,47 @@ namespace SI656_Alquiler_Equipos.Models
         }
     
         public int Id { get; set; }
+        [Required]
+        [Display(Name = "Codigo")]
         public string Code { get; set; }
+        [Required]
+        [Display(Name = "Nombre")]
         public string Name { get; set; }
+        [Required]
+        [Display(Name = "Descripcion")]
         public string Description { get; set; }
+        [Required]
+        [Display(Name = "Costo")]
         public decimal Cost { get; set; }
+        [Required]
+        [Display(Name = "Estado Equipo")]
         public int EquipmentStateId { get; set; }
+        [Required]
+        [Display(Name = "Stock")]
         public int Stock { get; set; }
+        [Required]
+        [Display(Name = "Tipo Equipo")]
         public int EquipmentTypeId { get; set; }
+        [Required]
+        [Display(Name = "Compañia")]
         public int CompanyId { get; set; }
+        [Required]
+        [Display(Name = "Precio por Hora")]
         public decimal PriceByHour { get; set; }
+        [Required]
+        [Display(Name = "Precio por Dia")]
         public decimal PriceByDay { get; set; }
+        [Required]
+        [Display(Name = "Precio por Semana")]
         public decimal PriceByWeek { get; set; }
+        [Required]
+        [Display(Name = "Hora Extra")]
         public decimal ExtraHour { get; set; }
+        [Required]
+        [Display(Name = "Dia Extra")]
         public decimal ExtraDay { get; set; }
+        [Required]
+        [Display(Name = "Url Imagen")]
         public string ImagePath { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -11,7 +11,8 @@ namespace SI656_Alquiler_Equipos.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Rental
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,11 +22,23 @@ namespace SI656_Alquiler_Equipos.Models
         }
     
         public int Id { get; set; }
+        [Required]
+        [Display(Name = "Dia Registrado")]
         public System.DateTime DateCreated { get; set; }
+        [Required]
+        [Display(Name = "Precio Total")]
         public decimal TotalPrice { get; set; }
+        [Required]
+        [Display(Name = "Dia Orden")]
         public System.DateTime OrderDate { get; set; }
+        [Required]
+        [Display(Name = "Cliente")]
         public int ClientId { get; set; }
+        [Required]
+        [Display(Name = "Usuario")]
         public int UserId { get; set; }
+        [Required]
+        [Display(Name = "Estado Alquiler")]
         public int RentalStateId { get; set; }
     
         public virtual Client Client { get; set; }

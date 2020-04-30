@@ -4,72 +4,61 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
-
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>Rental</h4>
+        <h4><strong>Registrar Alquiler</strong></h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.DateCreated, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DateCreated, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.DateCreated, new { htmlAttributes = new { @type = "date", @class = "form-control form-control-user", @placeholder = "Dia Registrado" } })
                 @Html.ValidationMessageFor(model => model.DateCreated, "", new { @class = "text-danger" })
-            </div>
+            
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.TotalPrice, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.TotalPrice, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.TotalPrice, new { htmlAttributes = new { @type = "number", @class = "form-control form-control-user", @placeholder = "Precio Total" } })
                 @Html.ValidationMessageFor(model => model.TotalPrice, "", new { @class = "text-danger" })
-            </div>
+          
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.OrderDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.OrderDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.OrderDate, new { htmlAttributes = new { @type = "date", @class = "form-control form-control-user", @placeholder = "Dia Orden" } })
                 @Html.ValidationMessageFor(model => model.OrderDate, "", new { @class = "text-danger" })
-            </div>
+            
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ClientId, "ClientId", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
                 @Html.DropDownList("ClientId", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.ClientId, "", new { @class = "text-danger" })
-            </div>
+       
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.UserId, "UserId", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
                 @Html.DropDownList("UserId", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.UserId, "", new { @class = "text-danger" })
-            </div>
+            
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.RentalStateId, "RentalStateId", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
                 @Html.DropDownList("RentalStateId", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.RentalStateId, "", new { @class = "text-danger" })
-            </div>
+            
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Registrar" class="btn btn-primary btn-user" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Volver a la Lista", "Index")
 </div>
+<br>
+<br>
+<br>

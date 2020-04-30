@@ -11,7 +11,8 @@ namespace SI656_Alquiler_Equipos.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class User
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -23,13 +24,30 @@ namespace SI656_Alquiler_Equipos.Models
         }
     
         public int Id { get; set; }
+        [Required]
+        [Display(Name = "Nombres")]
         public string Name { get; set; }
+        [Required]
+        [Display(Name = "Apellido Materno")]
         public string MotherLastName { get; set; }
+        [Required]
+        [Display(Name = "Apellido Paterno")]
         public string FatherLastName { get; set; }
+        [Required]
+        [Display(Name = "Nombre de Usuario")]
         public string NameUser { get; set; }
+        [Required]
+        [Display(Name = "Contraseña")]
         public string Password { get; set; }
+        [Required]
+        [Display(Name = "Rol")]
         public int RolId { get; set; }
+        [Required]
+        [EmailAddress]
+        [Display(Name = "Email")]
         public string Email { get; set; }
+        [Required]
+        [Display(Name = "Telefono")]
         public string MobileNumber { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

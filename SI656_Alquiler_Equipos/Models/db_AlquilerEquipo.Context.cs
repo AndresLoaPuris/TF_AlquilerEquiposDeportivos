@@ -36,5 +36,7 @@ namespace SI656_Alquiler_Equipos.Models
         public virtual DbSet<Rol> Rol { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<User> User { get; set; }
+
+        public System.Data.Entity.DbSet<SI656_Alquiler_Equipos.Models.UserLogin> UserLogins { get; set; }
     }
 }
