@@ -10,6 +10,7 @@ using WebApplication_AlquilerEquipos.Models;
 
 namespace WebApplication_AlquilerEquipos.Controllers
 {
+    [Authorize]
     public class AlquileresController : Controller
     {
         private AlquilerEquiposEntities db = new AlquilerEquiposEntities();

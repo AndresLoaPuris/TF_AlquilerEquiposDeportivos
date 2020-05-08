@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication_AlquilerEquipos.Models;
+using WebApplication_AlquilerEquipos.Services;
 
 namespace WebApplication_AlquilerEquipos.Controllers
 {
@@ -51,15 +52,17 @@ namespace WebApplication_AlquilerEquipos.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Codigo,Nombre,Descripcion,Costo,Estado_Id")] Equipo equipo)
         {
-            if (ModelState.IsValid)
-            {
-                db.Equipo.Add(equipo);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+            EquiposServices equiposServices = new EquiposServices();
+                if (equiposServices.Agregar(equipo))
+                {
+                    db.Equipo.Add(equipo);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
 
-            ViewBag.Estado_Id = new SelectList(db.Estado, "Id", "Nombre", equipo.Estado_Id);
-            return View(equipo);
+                ViewBag.Estado_Id = new SelectList(db.Estado, "Id", "Nombre", equipo.Estado_Id);
+                return View(equipo);
+
         }
 
         // GET: Equipos/Edit/5

@@ -11,7 +11,8 @@ namespace WebApplication_AlquilerEquipos.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Cliente
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,8 +22,11 @@ namespace WebApplication_AlquilerEquipos.Models
         }
     
         public int Id { get; set; }
+        [Required]
         public string Nombre { get; set; }
+        [Required]
         public string Documento { get; set; }
+        [Required]
         public int TipoDocumento_Id { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
