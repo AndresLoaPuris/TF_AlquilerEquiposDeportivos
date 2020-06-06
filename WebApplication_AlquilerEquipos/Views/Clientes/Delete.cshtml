@@ -39,11 +39,11 @@
             @Html.AntiForgeryToken()
 
             <div class="form-actions no-color">
-                <input type="submit" value="Eliminar" class="btn btn-danger" />
+                <input id = "Cliente_btn_Eliminar" type="submit" value="Eliminar" class="btn btn-danger" />
             </div>
         }
         <br/>
         <div>
-            @Html.ActionLink("Cancelar", "Index")
+            @Html.ActionLink("Cancelar", "Index", null, new { htmlAttributes = new { @id = "Cliente_btn_Cancelar" } })
         </div>
     </div>

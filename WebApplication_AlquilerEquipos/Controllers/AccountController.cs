@@ -10,7 +10,7 @@ namespace WebApplication_AlquilerEquipos.Controllers
 {
     public class AccountController : Controller
     {
-        private AlquilerEquiposEntities db = new AlquilerEquiposEntities();
+        private AlquilerEntities db = new AlquilerEntities();
         public static string StaticNameUser { get; set; }
         // GET: Account
         public ActionResult Login()
@@ -53,6 +53,8 @@ namespace WebApplication_AlquilerEquipos.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult SignUp([Bind(Include = "Id,Nombre,NombreUsuario,Clave,Cargo_Id")] Usuario usuario)
         {
+            usuario.Cargo_Id = 1;
+
             if (ModelState.IsValid)
             {
                 db.Usuario.Add(usuario);

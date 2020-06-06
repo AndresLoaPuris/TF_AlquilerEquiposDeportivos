@@ -57,21 +57,21 @@
                                         <form class="user">
                                             <div class="form-group">
                                                 @*<input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address...">*@
-                                                @Html.EditorFor(model => model.NameUser, new { htmlAttributes = new { @class = "form-control form-control-user", @placeholder = "Nombre de Usuario" } })
+                                                @Html.EditorFor(model => model.NameUser, new { htmlAttributes = new { @id = "Login_txt_NameUser", @class = "form-control form-control-user", @placeholder = "Nombre de Usuario" } })
                                                 @Html.ValidationMessageFor(model => model.NameUser, "", new { @class = "text-danger" })
                                             </div>
                                             <div class="form-group">
                                                 @*<input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">*@
-                                                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @type = "password", @class = "form-control form-control-user", @placeholder = "Contraseña" } })
+                                                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @id = "Login_txt_Password", @type = "password", @class = "form-control form-control-user", @placeholder = "Contraseña" } })
                                                 @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
                                             </div>
 
-                                            <input type="submit" value="Login" class="btn btn-primary btn-user btn-block" />
+                                            <input id="Login_btn_Login" type="submit" value="Login" class="btn btn-primary btn-user btn-block" />
 
                                         </form>
                                         <hr>
                                         <div class="text-center">
-                                            <a class="small" href="@Url.Action("SignUp", "Account")">Crear una Cuenta !</a>
+                                            <a id="Login_btn_SignUp" class="small" href="@Url.Action("SignUp", "Account")">Crear una Cuenta !</a>
                                         </div>
                                     </div>
                                     <br>

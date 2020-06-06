@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    <title>Alquiler Equipos</title>
     <link href="/Resources/vendor/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="/Resources/css/sb-admin-2.min.css" rel="stylesheet">
@@ -18,7 +18,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="@Url.Action("Index","Home")">
+        <a id="Layout_btn_Home" class="sidebar-brand d-flex align-items-center justify-content-center" href="@Url.Action("Index","Home")">
             <div class="sidebar-brand-icon">
                 <i class="fas fa-snowboarding"></i>
             </div>
@@ -28,14 +28,14 @@
         <!-- Divider -->
         <hr class="sidebar-divider">
         <li class="nav-item">
-            <a class="nav-link" href="@Url.Action("Index","Clientes")">
+            <a id="Layout_btn_Cliente" class="nav-link" href="@Url.Action("Index","Clientes")">
                 <i class="fas fa-fw fa-users"></i>
                 <span>Clientes</span>
             </a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="@Url.Action("Index","Alquileres")">
+            <a id="Layout_btn_Alquiler"class="nav-link" href="@Url.Action("Index","Alquileres")">
                 <i class="fas fa-fw fa-cash-register"></i>
                 <span>Alquileres</span>
             </a>
@@ -44,7 +44,7 @@
         <!-- Nav Item - Charts -->
         <!-- Nav Item - Tables -->
         <li class="nav-item">
-            <a class="nav-link" href="@Url.Action("Index", "Equipos")">
+            <a id="Layout_btn_Equipo" class="nav-link" href="@Url.Action("Index", "Equipos")">
                 <i class="fas fa-fw fa-swatchbook"></i>
                 <span>Equipos</span>
             </a>
@@ -76,14 +76,16 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-900 medium">@User.Identity.Name</span>
+                                <img class="img-profile rounded-circle" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ95GrFuesVVuyyfXOSimzstFtyiQ594yP-DNe0UfbUs_kyqqrM&usqp=CAU">
+
                             </a>
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href='@Url.Action("ProfileUser", "Account")'>
+                                <a id="Layout_btn_Perfil" class="dropdown-item" href='@Url.Action("ProfileUser", "Account")'>
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Perfil
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href='@Url.Action("Logout", "Account")'>
+                                <a id="Layout_btn_Logout" class="dropdown-item" href='@Url.Action("Logout", "Account")'>
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Cerrar Sesión
                                 </a>

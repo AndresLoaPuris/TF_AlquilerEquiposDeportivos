@@ -13,7 +13,7 @@ namespace WebApplication_AlquilerEquipos.Controllers
     [Authorize]
     public class AlquileresController : Controller
     {
-        private AlquilerEquiposEntities db = new AlquilerEquiposEntities();
+        private AlquilerEntities db = new AlquilerEntities();
 
         // GET: Alquileres
         public ActionResult Index()

@@ -5,9 +5,9 @@
 }
 
 <h4><strong>Equipos</strong></h4>
-
+<hr />
 <p>
-    @Html.ActionLink("Registrar Equipo", "Create")
+    @Html.ActionLink("Registrar Equipo", "Create",null, htmlAttributes: new { @Id = "Equipo_btn_Registrar", @class = "btn btn-primary" })
 </p>
 <table class="table">
     <tr>
@@ -47,8 +47,8 @@
             @Html.DisplayFor(modelItem => item.Estado.Nombre)
         </td>
         <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Eliminar", "Delete", new { id=item.Id })
+            @Html.ActionLink("Editar", "Edit", new { id=item.Id }, htmlAttributes: new { @Id = "Equipo_btn_Editar"}) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.Id }, htmlAttributes: new { @Id = "Equipo_btn_Eliminar" })
         </td>
     </tr>
 }

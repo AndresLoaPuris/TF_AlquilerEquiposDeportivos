@@ -11,16 +11,16 @@ namespace WebApplication_AlquilerEquipos.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
+	using System.ComponentModel.DataAnnotations;
 
-    public partial class Alquiler
+	public partial class Alquiler
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Alquiler()
         {
             this.AlquilerDetalle = new HashSet<AlquilerDetalle>();
         }
-    
+
         public int Id { get; set; }
         [Required]
         public System.DateTime Fecha { get; set; }
@@ -32,7 +32,7 @@ namespace WebApplication_AlquilerEquipos.Models
         public int Cliente_Id { get; set; }
         [Required]
         public int Usuario_Id { get; set; }
-    
+
         public virtual Cliente Cliente { get; set; }
         public virtual Usuario Usuario { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

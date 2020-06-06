@@ -3,7 +3,7 @@
 @using WebApplication_AlquilerEquipos.Controllers;
 
 @{
-    AlquilerEquiposEntities db = new AlquilerEquiposEntities();
+    AlquilerEntities db = new AlquilerEntities();
     Usuario user = db.Usuario.Where(s => s.NombreUsuario == AccountController.StaticNameUser).FirstOrDefault<Usuario>();
 }
 
@@ -27,25 +27,11 @@
             @Html.DisplayFor(model => model.NombreUsuario)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Clave)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Clave)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Cargo.Nombre)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Cargo.Nombre)
-        </dd>
+    
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Editar Perfil", "Edit", new { id = user.Id }, htmlAttributes: new { @class = "btn btn-primary" })
+    @Html.ActionLink("Editar Perfil", "Edit", new { id = user.Id }, htmlAttributes: new { @id="Usuario_btn_Editar", @class = "btn btn-primary" })
 </p>
 <br />

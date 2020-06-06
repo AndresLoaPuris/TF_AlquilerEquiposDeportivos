@@ -7,7 +7,7 @@
 <h4><strong>Clientes</strong></h4>
 
 <p>
-    @Html.ActionLink("Registrar Cliente", "Create")
+    @Html.ActionLink("Registrar Cliente", "Create",null, htmlAttributes: new { @id = "Cliente_btn_Registrar" })
 </p>
 <table class="table">
     <tr>
@@ -36,8 +36,8 @@
             @Html.DisplayFor(modelItem => item.TipoDocumento.Nombre)
         </td>
         <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Eliminar", "Delete", new { id=item.Id })
+            @Html.ActionLink("Editar", "Edit", new { id=item.Id }, htmlAttributes: new { @id = "Cliente_btn_Editar" }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.Id }, htmlAttributes: new { @id = "Cliente_btn_Eliminar" })
         </td>
     </tr>
 }

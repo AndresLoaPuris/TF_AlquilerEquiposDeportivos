@@ -138,47 +138,44 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Alquiler.cs">
-      <DependentUpon>AlquilerEquipo.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AlquilerDetalle.cs">
-      <DependentUpon>AlquilerEquipo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AlquilerEquipo.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AlquilerEquipo.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AlquilerEquipo.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AlquilerEquipo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AlquilerEquipo.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AlquilerEquipo.edmx</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Cargo.cs">
-      <DependentUpon>AlquilerEquipo.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Cliente.cs">
-      <DependentUpon>AlquilerEquipo.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Equipo.cs">
-      <DependentUpon>AlquilerEquipo.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Estado.cs">
-      <DependentUpon>AlquilerEquipo.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\sysdiagrams.cs">
-      <DependentUpon>AlquilerEquipo.tt</DependentUpon>
+    <Compile Include="Models\Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\TipoDocumento.cs">
-      <DependentUpon>AlquilerEquipo.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserLogin.cs" />
     <Compile Include="Models\Usuario.cs">
-      <DependentUpon>AlquilerEquipo.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\EquiposServices.cs" />
@@ -192,18 +189,19 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\AlquilerEquipo.Context.tt">
+    <Content Include="Models\Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>AlquilerEquipo.Context.cs</LastGenOutput>
-      <DependentUpon>AlquilerEquipo.edmx</DependentUpon>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\AlquilerEquipo.tt">
+    <Content Include="Models\Model.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AlquilerEquipo.edmx</DependentUpon>
-      <LastGenOutput>AlquilerEquipo.cs</LastGenOutput>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
     <Content Include="Resources\css\sb-admin-2.css" />
     <Content Include="Resources\css\sb-admin-2.min.css" />
+    <Content Include="Resources\img\logo.jpg" />
     <Content Include="Resources\img\undraw_posting_photo.svg" />
     <Content Include="Resources\js\demo\chart-area-demo.js" />
     <Content Include="Resources\js\demo\chart-bar-demo.js" />
@@ -1813,13 +1811,6 @@
     <Content Include="Resources\vendor\sweetalert2\sweetalert2.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\AlquilerEquipo.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>AlquilerEquipo.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\AlquilerEquipo.edmx.diagram">
-      <DependentUpon>AlquilerEquipo.edmx</DependentUpon>
-    </Content>
     <Content Include="Resources\scss\navs\_global.scss" />
     <Content Include="Resources\scss\navs\_sidebar.scss" />
     <Content Include="Resources\scss\navs\_topbar.scss" />
@@ -1988,6 +1979,15 @@
     <Content Include="Resources\vendor\fontawesome-free\webfonts\fa-solid-900.woff2" />
     <Content Include="Resources\vendor\jquery\jquery.min.map" />
     <Content Include="Resources\vendor\jquery\jquery.slim.min.map" />
+    <EntityDeploy Include="Models\Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model.edmx.diagram">
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Content>
+    <None Include="Properties\PublishProfiles\WebApplicationAlquilerEquipos20200602182548 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\WebApplicationAlquilerEquipos20200602204639 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

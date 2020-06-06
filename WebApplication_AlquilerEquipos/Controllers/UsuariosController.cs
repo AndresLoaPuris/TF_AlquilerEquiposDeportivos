@@ -13,7 +13,7 @@ namespace WebApplication_AlquilerEquipos.Controllers
     [Authorize]
     public class UsuariosController : Controller
     {
-        private AlquilerEquiposEntities db = new AlquilerEquiposEntities();
+        private AlquilerEntities db = new AlquilerEntities();
 
         // GET: Usuarios
         public ActionResult Index()
@@ -85,6 +85,8 @@ namespace WebApplication_AlquilerEquipos.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Nombre,NombreUsuario,Clave,Cargo_Id")] Usuario usuario)
         {
+            usuario.Cargo_Id = 1;
+
             if (ModelState.IsValid)
             {
                 db.Entry(usuario).State = EntityState.Modified;

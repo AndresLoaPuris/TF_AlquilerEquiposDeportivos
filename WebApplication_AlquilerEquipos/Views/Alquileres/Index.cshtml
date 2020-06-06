@@ -9,7 +9,7 @@
     <hr />
     <div class="panel-heading">
         <div class="row">
-            <button style="margin-right:10px" class="btn btn-primary pull-right" onclick="addNewOrder()">Registrar Alquiler</button>
+            <button id="Alquiler_btn_Registrar" style="margin-right:10px" class="btn btn-primary pull-right" onclick="addNewOrder()">Registrar Alquiler</button>
         </div>
     </div>
     <br />
@@ -89,11 +89,11 @@
 
                             <div class="form-group">
                                 <div class="col-md-6">
-                                    @Html.DropDownList("Cliente_Id", null, new { @Id = "name", @class = "form-control" })
+                                    @Html.DropDownList("Cliente_Id", null, new { @Id = "Alquiler_ddl_Cliente", @class = "form-control" })
                                     <br />
                                     <label class="control-label col-md-7">Fecha Orden</label>
                                     
-                                     <input type="date" id="fechaOrder" name="fechaOrder" placeholder="Fecha" class="form-control" />
+                                     <input type="date" id="Alquiler_dat_FechaOrder" name="fechaOrder" placeholder="Fecha" class="form-control" />
                                    
                                 </div>
                             </div>
@@ -106,12 +106,12 @@
                             <input type="hidden" id="OrderId" />
                             <div class="form-group">
                                 <div class="col-md-4">
-                                    @Html.DropDownList("Equipo_Id", null, new { @Id = "productName", @class = "form-control" })
+                                    @Html.DropDownList("Equipo_Id", null, new { @Id = "Alquiler_ddl_Producto", @class = "form-control" })
 
                                 </div>
                                 <label class="control-label col-md-2"></label>
                                 <div class="col-md-4">
-                                    <input type="number" id="price" name="price" placeholder="Precio" class="form-control" />
+                                    <input type="number" id="Alquiler_txt_Precio" name="price" placeholder="Precio" class="form-control" />
                                 </div>
                             </div>
 
@@ -119,7 +119,7 @@
                                 <button id="addToList" class="btn btn-secondary">Agregar a la Lista</button>
                             </div>
 
-                            <table id="detailsTable" class="table">
+                            <table id="Alquiler_tabl_Deatalles" class="table">
                                 <thead>
                                     <tr>
                                         <th style="width:30%">Equipo</th>
@@ -133,7 +133,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="reset" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                        <button id="saveOrder" type="submit" class="btn btn-primary">Guardar Datos</button>
+                        <button id="Alquiler_btn_Guardar" type="submit" class="btn btn-primary">Guardar Datos</button>
                     </div>
                 </form>
             </div>
@@ -152,11 +152,11 @@
         $("#addToList").click(function (e) {
             e.preventDefault();
 
-            if ($.trim($("#productName").val()) == "" || $.trim($("#price").val()) == "") return;
+            if ($.trim($("#Alquiler_ddl_Producto").val()) == "" || $.trim($("#Alquiler_txt_Precio").val()) == "") return;
 
-            var productName = $("#productName").val(),
-                price = $("#price").val(),
-                detailsTableBody = $("#detailsTable tbody");
+            var productName = $("#Alquiler_ddl_Producto").val(),
+                price = $("#Alquiler_txt_Precio").val(),
+                detailsTableBody = $("#Alquiler_tabl_Deatalles tbody");
 
             var productItem = '<tr><td>' + productName + '</td><td>' + price + '</td><td><a data-itemId="0" href="#" class="deleteItem">Remove</a></td></tr>';
             detailsTableBody.append(productItem);
@@ -164,8 +164,8 @@
         });
         //After Add A New Order In The List, Clear Clean The Form For Add More Order.
         function clearItem() {
-            $("#productName").val('Seleccione Equipo');
-            $("#price").val('');
+            $("#Alquiler_ddl_Producto").val('Seleccione Equipo');
+            $("#Alquiler_txt_Precio").val('');
         }
         // After Add A New Order In The List, If You Want, You Can Remove It.
         $(document).on('click', 'a.deleteItem', function (e) {
@@ -195,13 +195,13 @@
             });
         }
         //Collect Multiple Order List For Pass To Controller
-        $("#saveOrder").click(function (e) {
+        $("#Alquiler_btn_Guardar").click(function (e) {
             e.preventDefault();
 
             var orderArr = [];
             orderArr.length = 0;
 
-            $.each($("#detailsTable tbody tr"), function () {
+            $.each($("#Alquiler_tabl_Deatalles tbody tr"), function () {
                 orderArr.push({
                     Equipo_Id: $(this).find('td:eq(0)').html(),
                     Precio: $(this).find('td:eq(1)').html()
@@ -210,8 +210,8 @@
 
 
             var data = JSON.stringify({
-                name: $("#name").val(),
-                fecha: $("#fechaOrder").val(),
+                name: $("#Alquiler_ddl_Cliente").val(),
+                fecha: $("#Alquiler_dat_FechaOrder").val(),
                 order: orderArr
             });
 
