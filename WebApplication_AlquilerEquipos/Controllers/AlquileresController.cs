@@ -20,8 +20,6 @@ namespace WebApplication_AlquilerEquipos.Controllers
         {
             Usuario user = db.Usuario.Where(s => s.NombreUsuario == AccountController.StaticNameUser).FirstOrDefault<Usuario>();
             var alquiler = db.Alquiler.Include(a => a.Cliente).Include(a => a.Usuario).Where(s => s.Usuario_Id == user.Id);
-            ViewBag.Cliente_Id = new SelectList(db.Cliente, "Id", "Nombre");
-            ViewBag.Equipo_Id = new SelectList(db.Equipo, "Id", "Nombre");
             return View(alquiler.ToList());
         }
 
@@ -40,7 +38,8 @@ namespace WebApplication_AlquilerEquipos.Controllers
                 model.FechaRegistro = DateTime.Now;
                 foreach (var item in order)
                 {
-                    model.Total += item.Precio;
+                    Equipo equipo = db.Equipo.Where(s => s.Id == item.Equipo_Id).FirstOrDefault<Equipo>();
+                    model.Total += equipo.Costo;
 
                 }
                 db.Alquiler.Add(model);
@@ -50,10 +49,12 @@ namespace WebApplication_AlquilerEquipos.Controllers
 
                 foreach (var item in order)
                 {
+                    Equipo equipo = db.Equipo.Where(s => s.Id == item.Equipo_Id).FirstOrDefault<Equipo>();
+
                     AlquilerDetalle alquilerDetalle = new AlquilerDetalle();
                     alquilerDetalle.Alquiler_Id = max;
                     alquilerDetalle.Equipo_Id = item.Equipo_Id;
-                    alquilerDetalle.Precio = item.Precio;
+                    alquilerDetalle.Precio = equipo.Costo;
                     db.AlquilerDetalle.Add(alquilerDetalle);
                     db.SaveChanges();
                 }
@@ -86,8 +87,9 @@ namespace WebApplication_AlquilerEquipos.Controllers
         // GET: Alquileres/Create
         public ActionResult Create()
         {
-            ViewBag.Cliente_Id = new SelectList(db.Cliente, "Id", "Nombre");
-            ViewBag.Usuario_Id = new SelectList(db.Usuario, "Id", "Nombre");
+            
+            ViewBag.Cliente_Id = new SelectList(db.Cliente.Where(s => s.Eliminado == 0), "Id", "Nombre");
+            ViewBag.Equipo_Id = new SelectList(db.Equipo.Where(s => s.Eliminado == 0), "Id", "Nombre");
             return View();
         }
 

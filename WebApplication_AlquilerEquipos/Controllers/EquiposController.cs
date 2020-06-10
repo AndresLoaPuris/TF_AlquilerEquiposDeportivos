@@ -19,7 +19,7 @@ namespace WebApplication_AlquilerEquipos.Controllers
         // GET: Equipos
         public ActionResult Index()
         {
-            var equipo = db.Equipo.Include(e => e.Estado);
+            var equipo = db.Equipo.Where(s => s.Eliminado == 0).Include(e => e.Estado);
             return View(equipo.ToList());
         }
 
@@ -50,9 +50,10 @@ namespace WebApplication_AlquilerEquipos.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Codigo,Nombre,Descripcion,Costo,Estado_Id")] Equipo equipo)
+        public ActionResult Create([Bind(Include = "Id,Codigo,Nombre,Descripcion,Costo,Estado_Id,Eliminado")] Equipo equipo)
         {
             EquiposServices equiposServices = new EquiposServices();
+            equipo.Eliminado = 0;
                 if (equiposServices.Agregar(equipo))
                 {
                     db.Equipo.Add(equipo);
@@ -86,7 +87,7 @@ namespace WebApplication_AlquilerEquipos.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Codigo,Nombre,Descripcion,Costo,Estado_Id")] Equipo equipo)
+        public ActionResult Edit([Bind(Include = "Id,Codigo,Nombre,Descripcion,Costo,Estado_Id,Eliminado")] Equipo equipo)
         {
             if (ModelState.IsValid)
             {
@@ -119,7 +120,8 @@ namespace WebApplication_AlquilerEquipos.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Equipo equipo = db.Equipo.Find(id);
-            db.Equipo.Remove(equipo);
+            //db.Equipo.Remove(equipo);
+            equipo.Eliminado = 1;
             db.SaveChanges();
             return RedirectToAction("Index");
         }

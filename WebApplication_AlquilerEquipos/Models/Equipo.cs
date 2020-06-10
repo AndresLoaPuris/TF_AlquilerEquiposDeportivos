@@ -11,32 +11,23 @@ namespace WebApplication_AlquilerEquipos.Models
 {
     using System;
     using System.Collections.Generic;
-	using System.ComponentModel.DataAnnotations;
-
-	public partial class Equipo
+    
+    public partial class Equipo
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Equipo()
         {
             this.AlquilerDetalle = new HashSet<AlquilerDetalle>();
         }
-
+    
         public int Id { get; set; }
-        [Required(ErrorMessage = "Error: Debe ingresar el campo Codigo")]
-        [StringLength(50)]
         public string Codigo { get; set; }
-        [Required(ErrorMessage = "Error: Debe ingresar el campo Nombre")]
-        [StringLength(50)]
         public string Nombre { get; set; }
-        [Required(ErrorMessage = "Error: Debe ingresar el campo Descripcion")]
-        [StringLength(50)]
         public string Descripcion { get; set; }
-        [Required(ErrorMessage = "Error: Debe ingresar el campo Costo")]
-        [Range(0.0, float.MaxValue)]
         public float Costo { get; set; }
-        [Required]
         public int Estado_Id { get; set; }
-
+        public int Eliminado { get; set; }
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AlquilerDetalle> AlquilerDetalle { get; set; }
         public virtual Estado Estado { get; set; }

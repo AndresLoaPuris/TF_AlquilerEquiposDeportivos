@@ -18,7 +18,7 @@ namespace WebApplication_AlquilerEquipos.Controllers
         // GET: Clientes
         public ActionResult Index()
         {
-            var cliente = db.Cliente.Include(c => c.TipoDocumento);
+            var cliente = db.Cliente.Where(s => s.Eliminado == 0).Include(c => c.TipoDocumento);
             return View(cliente.ToList());
         }
 
@@ -49,8 +49,9 @@ namespace WebApplication_AlquilerEquipos.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Nombre,Documento,TipoDocumento_Id")] Cliente cliente)
+        public ActionResult Create([Bind(Include = "Id,Nombre,Documento,TipoDocumento_Id,Eliminado")] Cliente cliente)
         {
+            cliente.Eliminado = 0;
             if (ModelState.IsValid)
             {
                 db.Cliente.Add(cliente);
@@ -83,7 +84,7 @@ namespace WebApplication_AlquilerEquipos.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Nombre,Documento,TipoDocumento_Id")] Cliente cliente)
+        public ActionResult Edit([Bind(Include = "Id,Nombre,Documento,TipoDocumento_Id,Eliminado")] Cliente cliente)
         {
             if (ModelState.IsValid)
             {
@@ -116,7 +117,8 @@ namespace WebApplication_AlquilerEquipos.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Cliente cliente = db.Cliente.Find(id);
-            db.Cliente.Remove(cliente);
+            //db.Cliente.Remove(cliente);
+            cliente.Eliminado = 1;
             db.SaveChanges();
             return RedirectToAction("Index");
         }
