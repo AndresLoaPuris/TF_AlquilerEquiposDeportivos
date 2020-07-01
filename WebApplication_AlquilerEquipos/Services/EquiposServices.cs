@@ -48,7 +48,10 @@ namespace WebApplication_AlquilerEquipos.Services
 				Console.WriteLine("Error: El campo " + campo + " no debe tener más de " + longitud + "caracteres");
 				return false;
 			}
-			return true;
+			else {
+				return true;
+			}
+			
 		}
 
 

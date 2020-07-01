@@ -41,7 +41,7 @@ namespace WebApplication_AlquilerEquipos.Tests.Controllers
 			EquiposServices equiposServices = new EquiposServices();
 			Equipo equipo = new Equipo() { Nombre = "Equipo de Paracaidas" };
 			bool result = equiposServices.validarLongitudMaxima(equipo.Nombre.Trim(), "Nombre", 100);
-			Assert.IsFalse(result);
+			Assert.IsTrue(result);
 		}
 		[TestMethod]
 		public void DescripcionEsVacio()
