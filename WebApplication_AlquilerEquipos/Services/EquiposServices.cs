@@ -34,7 +34,10 @@ namespace WebApplication_AlquilerEquipos.Services
 				Console.WriteLine("Error: Debe ingresar el campo " + nombre);
 				return false;
 			}
-			return true;
+			else {
+				return true;
+			}
+			
 		}
 
 		public bool validarLongitudMaxima(String campo, String nombre, int longitud)

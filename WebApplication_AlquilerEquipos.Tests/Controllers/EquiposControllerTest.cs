@@ -17,7 +17,7 @@ namespace WebApplication_AlquilerEquipos.Tests.Controllers
 			EquiposServices equiposServices = new EquiposServices();
 			Equipo equipo = new Equipo() { Costo = -45 };
 			bool result = equiposServices.validarNumeroPositivo(equipo.Costo, "Costo");
-			Assert.IsTrue(result);
+			Assert.IsFalse(result);
 		}
 		[TestMethod]
 		public void CodigoEsVacio()
@@ -25,7 +25,7 @@ namespace WebApplication_AlquilerEquipos.Tests.Controllers
 			EquiposServices equiposServices = new EquiposServices();
 			Equipo equipo = new Equipo() { Codigo = string.Empty };
 			bool result = equiposServices.validarCampoRequerido(equipo.Codigo, "Código");
-			Assert.IsTrue(result);
+			Assert.IsFalse(result);
 		}
 		[TestMethod]
 		public void NombreEsVacio()
@@ -33,7 +33,7 @@ namespace WebApplication_AlquilerEquipos.Tests.Controllers
 			EquiposServices equiposServices = new EquiposServices();
 			Equipo equipo = new Equipo() { Nombre = string.Empty };
 			bool result = equiposServices.validarCampoRequerido(equipo.Nombre.Trim(), "Nombre");
-			Assert.IsTrue(result);
+			Assert.IsFalse(result);
 		}
 		[TestMethod]
 		public void NombreMax100Caracteres ()
@@ -41,7 +41,7 @@ namespace WebApplication_AlquilerEquipos.Tests.Controllers
 			EquiposServices equiposServices = new EquiposServices();
 			Equipo equipo = new Equipo() { Nombre = "Equipo de Paracaidas" };
 			bool result = equiposServices.validarLongitudMaxima(equipo.Nombre.Trim(), "Nombre", 100);
-			Assert.IsTrue(result);
+			Assert.IsFalse(result);
 		}
 		[TestMethod]
 		public void DescripcionEsVacio()
@@ -49,7 +49,7 @@ namespace WebApplication_AlquilerEquipos.Tests.Controllers
 			EquiposServices equiposServices = new EquiposServices();
 			Equipo equipo = new Equipo() { Descripcion = string.Empty };
 			bool result = equiposServices.validarCampoRequerido(equipo.Descripcion.Trim(), "Descripción");
-			Assert.IsTrue(result);
+			Assert.IsFalse(result);
 		}
 		[TestMethod]
 		public void Integracion_EntidadEstado()
